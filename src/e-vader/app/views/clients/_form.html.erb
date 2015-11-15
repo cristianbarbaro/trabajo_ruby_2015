@@ -1,0 +1,35 @@
+<%= form_for :client do |f| %>
+  <div style="text-align:center;">
+    <div class="field">
+      <%= f.label "Nombre" %><br>
+      <%= f.text_field :firstname %>
+    </div>
+    <div class="field">
+      <%= f.label "Apellido" %><br>
+      <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= f.label "Fecha de nacimiento" %><br>
+      <%= f.text_field :birthdate %>
+    </div>
+    <div class="field">
+      <%= f.label "DNI" %><br>
+      <%= f.text_field :document_number %>
+    </div>
+    <div class="field">
+      <%= f.label "CUIT/CUIL" %><br>
+      <%= f.text_field :identification_code_type %>
+    </div>
+    <div class="field">
+      <%= f.label "Número de CUIT/CUIL" %><br>
+      <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= f.label "Tipo de cliente" %><br>
+      <%= f.text_field :type %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
