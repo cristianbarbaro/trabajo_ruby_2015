@@ -12,6 +12,7 @@ class ClientsController < ApplicationController
 
 	# GET /clients/new (Equivalent to a "create")
 	def new
+		@client = Client.new
 	end
 
 	# GET /clients/1/edit
