@@ -3,7 +3,7 @@ class CreateClients < ActiveRecord::Migration
     create_table :clients do |t|
     	t.string :firstname
     	t.string :lastname
-    	t.string :birthdate
+    	t.date   :birthdate
     	t.string :genre
     	t.string :document_number
     	t.string :identification_code_type

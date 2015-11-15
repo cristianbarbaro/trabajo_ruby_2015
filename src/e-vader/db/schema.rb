@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151115130738) do
   create_table "clients", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "birthdate"
+    t.date     "birthdate"
     t.string   "genre"
     t.string   "document_number"
     t.string   "identification_code_type"
