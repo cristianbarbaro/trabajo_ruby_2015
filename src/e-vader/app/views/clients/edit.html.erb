@@ -1,9 +1,9 @@
-<h1 style="">Editar cliente</h1>
+<h1 style="text-align:center;">Editar cliente</h1>
 
 <%= render 'errors_messages' %>
 
-<%= form_for :client, url: client_path do |f| %>
+<%= form_for :client, url: client_path, :html => {:class => "col-md-6 col-md-offset-3"} do |f| %>
   <input type="hidden" name="_method" value="put" >
   <%= render 'form', :f => f %>
-	<%= link_to 'Volver', client_path %>
+	<%= link_to 'Volver', client_path, class: 'btn btn-danger pull-right' %>
 <% end %>

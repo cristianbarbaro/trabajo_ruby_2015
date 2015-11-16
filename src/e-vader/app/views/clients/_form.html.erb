@@ -1,37 +1,37 @@
-<div style="">
-  <div class="field">
+<div class="">
+  <div class="form-group">
     <%= f.label "Nombre" %><br>
-    <%= f.text_field :firstname, required: true %>
+    <%= f.text_field :firstname, required: true, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Apellido" %><br>
-    <%= f.text_field :lastname, required: true %>
+    <%= f.text_field :lastname, required: true, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Fecha de nacimiento" %><br>
-    <%= f.date_select :birthdate, required: true %>
+    <%= f.date_select :birthdate,required: true %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "DNI" %><br>
-    <%= f.text_field :document_number, required: true %>
+    <%= f.text_field :document_number, required: true, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Sexo" %><br>
-    <%= f.select :genre, [['Masculino', "M"], ['Femenino', "F"]] %>
+    <%= f.select :genre, [['Masculino', "M"], ['Femenino', "F"]], {}, { :class => 'form-control'} %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "CUIT/CUIL" %><br>
-    <%= f.select :identification_code_type, [["CUIL", "CUIL"], ["CUIT", "CUIT"]] %>
+    <%= f.select :identification_code_type, [["CUIL", "CUIL"], ["CUIT", "CUIT"]], {}, { :class => 'form-control'} %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Número de CUIT/CUIL" %><br>
-    <%= f.text_field :identification_code_number, required: true %>
+    <%= f.text_field :identification_code_number, required: true, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Tipo de cliente" %><br>
-    <%= f.text_field :client_type, required: true %>
+    <%= f.text_field :client_type, required: true, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success pull-right" %>
   </div>
 </div>
