@@ -8,7 +8,6 @@ class CreateClients < ActiveRecord::Migration
     	t.string :document_number
     	t.string :identification_code_type
     	t.string :identification_code_number
-    	t.boolean :client_type 			#Si es persona, es true.
 
       t.timestamps null: false
     end

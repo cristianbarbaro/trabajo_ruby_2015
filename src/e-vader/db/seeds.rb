@@ -14,7 +14,6 @@ cristian = Client.create({
 									document_number: "336814910",
 									identification_code_type: "cuil",
 									identification_code_number: "20/0",
-									client_type: "t"
 	})
 
 juli = Client.create({
@@ -25,7 +24,6 @@ juli = Client.create({
 									document_number: "39888445",
 									identification_code_type: "cuil",
 									identification_code_number: "17/0",
-									client_type: "t"
 	})
 
 ivan = Client.create({
@@ -36,7 +34,6 @@ ivan = Client.create({
 									document_number: "39115902",
 									identification_code_type: "cuil",
 									identification_code_number: "17/4",
-									client_type: "t"
 	})
 
 braian = Client.create({
@@ -47,5 +44,4 @@ braian = Client.create({
 									document_number: "39000112",
 									identification_code_type: "cuil",
 									identification_code_number: "11/0",
-									client_type: "t"
 	})

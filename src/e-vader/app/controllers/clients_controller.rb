@@ -52,9 +52,9 @@ class ClientsController < ApplicationController
 	private
 		#Esto viene a hacerse el tema de la asignacion masiva:
 	  def client_params
-	    params.require(:client).permit(:firstname, :lastname, :document_number, :genre,
+	    params.require(:client).permit(:firstname, :lastname, :document_number,
 	    															 :identification_code_type, :identification_code_number, 
-	    															 :client_type, :birthdate)
+	    															 :genre, :birthdate)
 	  end
 
 end
