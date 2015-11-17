@@ -45,3 +45,16 @@ braian = Client.create({
 									identification_code_type: "cuil",
 									identification_code_number: "11/0",
 	})
+
+telefono = Contact.create({
+									contact_type: "Teléfono",
+	})
+
+email = Contact.create({
+									contact_type: "Correo electrónico",
+	})
+
+direccion = Contact.create({
+									contact_type: "Dirección",
+	})
+
