@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="text-center">Tipos de contactos</h3>
+
+<table class="table table-bordered text-center">
+  <thead class="">
+    <tr>
+      <th class="text-center">Nombre</th>
+      <th class="text-center" colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.contact_type %></td>
+        <td><%= link_to 'Ver', contact %></td>
+        <td><%= link_to 'Editar', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Eliminar', contact, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo tipo de contacto', new_contact_path, class: 'btn btn-success pull-right' %>

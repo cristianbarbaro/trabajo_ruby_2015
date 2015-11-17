@@ -1,0 +1,7 @@
+<h3 class="text-center">Nuevo cliente</h3>
+
+<%= render "errors_messages" %>
+
+<%= form_for :contact, url: contacts_path do |f| %>
+  <%= render 'form', :f => f %>
+<% end %>
