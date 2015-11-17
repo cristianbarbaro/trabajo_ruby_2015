@@ -1,3 +1,3 @@
 class Contact < ActiveRecord::Base
-	validates :type, presence: true
+	validates :contact_type, presence: true
 end

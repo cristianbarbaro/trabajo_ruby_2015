@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20151116014452) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "contact_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
