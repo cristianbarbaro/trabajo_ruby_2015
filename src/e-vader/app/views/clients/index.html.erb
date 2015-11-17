@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listado de clientes</h1>
+<h3 class="text-center">Listado de clientes</h3>
 
-<table>
-  <thead>
+<table class="table table-bordered">
+  <thead class="">
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th colspan="3"></th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'Nuevo cliente', new_client_path, class: 'btn btn-success' %>
+<%= link_to 'Nuevo cliente', new_client_path, class: 'btn btn-success pull-right' %>

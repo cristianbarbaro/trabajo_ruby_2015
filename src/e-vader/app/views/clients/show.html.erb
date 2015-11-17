@@ -1,21 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Información sobre cliente: <%= @client.firstname %> <%= @client.lastname %></h3>
+<h3 class="text-center">Información sobre cliente: <%= @client.firstname %> <%= @client.lastname %></h3>
 
-<p>
-  <strong>Fecha nacimiento:</strong>
-  <%= @client.birthdate %>
-</p>
-
-<p>
-  <strong>Número de documento:</strong>
-	<%= @client.document_number %>
-</p>
-
-<p>
-  <strong><%= @client.identification_code_type %>: </strong>
-	<%= @client.identification_code_number %>
-</p>
-
-<%= link_to 'Editar', edit_client_path(@client) %> |
-<%= link_to 'Volver', clients_path %>
+<div class="container-fluid">
+	<div class="bg-warning">
+		<p>
+			<strong>Fecha nacimiento:</strong>
+			<%= @client.birthdate %>
+		</p>
+		<p>
+			<strong>Número de documento:</strong>
+			<%= @client.document_number %>
+		</p>
+		<p>
+			<strong><%= @client.identification_code_type %>: </strong>
+			<%= @client.identification_code_number %>
+		</p>
+		<div class="pull-right">
+			<%= link_to 'Volver', clients_path, class: "btn btn-default" %>
+			<%= link_to 'Editar', edit_client_path(@client), class: "btn btn-success" %>
+		</div>
+	</div>
+</div>

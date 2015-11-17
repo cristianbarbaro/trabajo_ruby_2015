@@ -1,8 +1,7 @@
-<h1 class="text-center">Nuevo cliente</h1>
+<h3 class="text-center">Nuevo cliente</h3>
 
 <%= render 'errors_messages' %>
 
-<%= form_for :client, url: clients_path, :html => {:class => "col-md-6 col-md-offset-3"} do |f| %>
-  <%= render 'form', :f => f %>
-	<%= link_to 'Volver al listado', clients_path, class: 'btn btn-danger pull-right' %>
+<%= form_for :client, url: clients_path, :html => {:class => ""} do |f| %>
+  <%= render 'form', :f => f, :path => clients_path %>
 <% end %>

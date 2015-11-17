@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <%= f.label "Fecha de nacimiento" %><br>
-    <%= f.date_select :birthdate,required: true %>
+    <%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1920, :end_year => Time.new.year %>
   </div>
   <div class="form-group">
     <%= f.label "DNI" %><br>
@@ -27,7 +27,8 @@
     <%= f.label "Número de CUIT/CUIL" %><br>
     <%= f.text_field :identification_code_number, required: true, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit class: "btn btn-success pull-right" %>
-  </div>
+  <div class="pull-right">
+    <%= link_to 'Volver al listado', path, class: 'btn btn-danger' %>
+    <%= f.submit class: "btn btn-success" %>
+  </div> 
 </div>
