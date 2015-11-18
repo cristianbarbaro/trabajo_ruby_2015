@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="text-center">Facturas</h3>
+
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Descripción</th>
+      <th class="text-center">Monto total</th>
+      <th class="text-center">Fecha de emisión</th>
+      <th class="text-center" colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.description %></td>
+        <td>$ <%= invoice.total_amount %></td>
+        <td><%= invoice.discharge_date %></td>
+        <td><%= link_to 'Ver', invoice %></td>
+        <td><%= link_to 'Editar', edit_invoice_path(invoice) %></td>
+        <td><%= link_to 'Eliminar', invoice, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva factura', new_invoice_path, class: 'btn btn-success pull-right' %>

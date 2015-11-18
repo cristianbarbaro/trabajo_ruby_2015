@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  total_amount: 1.5
+  discharge_date: 2015-11-17
+  user_id: 1
+
+two:
+  description: MyText
+  total_amount: 1.5
+  discharge_date: 2015-11-17
+  user_id: 1

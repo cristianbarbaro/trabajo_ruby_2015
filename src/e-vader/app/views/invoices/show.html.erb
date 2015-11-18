@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="text-center">Detalles de factura:</h3>
+
+<div class="container-fluid">
+	<div class="bg-warning">
+		<p>
+		  <strong>Datos de cliente:</strong>
+		  	<ul>
+		  		<li><strong>Nombre: </strong><%= @client.firstname + ' ' + @client.lastname%></li>
+		  		<li><strong><%= @client.identification_code_type %>: </strong>
+		  			<%= @client.identification_code_number %>
+		  		</li>
+		  	</ul>
+		</p>
+		<p>
+		  <strong>Descripción:</strong>
+		  <%= @invoice.description %>
+		</p>
+		<p>
+		  <strong>Monto total:</strong>
+		  $ <%= @invoice.total_amount %>
+		</p>
+		<p>
+		  <strong>Fecha de emisión:</strong>
+		  <%= @invoice.discharge_date %>
+		</p>
+		<p>
+			<strong></strong>
+		</p>
+		<div class="pull-right">
+			<%= link_to 'Volver', invoices_path, class: "btn btn-default" %>
+			<%= link_to 'Editar', edit_invoice_path(@invoice), class: "btn btn-success" %>
+		</div>
+	</div>
+</div>
+
