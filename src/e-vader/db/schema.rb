@@ -14,34 +14,34 @@
 ActiveRecord::Schema.define(version: 20151117231112) do
 
   create_table "client_contacts", force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "contact_id"
-    t.string  "value"
+    t.integer "client_id",  null: false
+    t.integer "contact_id", null: false
+    t.string  "value",      null: false
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.date     "birthdate"
-    t.string   "genre"
-    t.string   "document_number"
-    t.string   "identification_code_type"
-    t.string   "identification_code_number"
+    t.string   "firstname",                  null: false
+    t.string   "lastname",                   null: false
+    t.date     "birthdate",                  null: false
+    t.string   "genre",                      null: false
+    t.string   "document_number",            null: false
+    t.string   "identification_code_type",   null: false
+    t.string   "identification_code_number", null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "contact_type"
+    t.string   "contact_type", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.text     "description"
-    t.float    "total_amount"
-    t.date     "discharge_date"
-    t.integer  "client_id"
+    t.text     "description",    null: false
+    t.float    "total_amount",   null: false
+    t.date     "discharge_date", null: false
+    t.integer  "client_id",      null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
