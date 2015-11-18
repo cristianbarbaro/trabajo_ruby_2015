@@ -11,8 +11,8 @@ cristian = Client.create({
 									lastname: "Barbaro",
 									birthdate: "1988-04-22",
 									genre: "M",
-									document_number: "336814910",
-									identification_code_type: "cuil",
+									document_number: 336814910,
+									identification_code_type: "CUIL",
 									identification_code_number: "20/0",
 	})
 
@@ -21,8 +21,8 @@ juli = Client.create({
 									lastname: "Romero",
 									birthdate: "1995-08-14",
 									genre: "F",
-									document_number: "39888445",
-									identification_code_type: "cuil",
+									document_number: 39888445,
+									identification_code_type: "CUIL",
 									identification_code_number: "17/0",
 	})
 
@@ -31,8 +31,8 @@ ivan = Client.create({
 									lastname: "Gianfelici",
 									birthdate: "1995-05-05",
 									genre: "M",
-									document_number: "39115902",
-									identification_code_type: "cuil",
+									document_number: 39115902,
+									identification_code_type: "CUIL",
 									identification_code_number: "17/4",
 	})
 
@@ -41,8 +41,8 @@ braian = Client.create({
 									lastname: "Gianfelici",
 									birthdate: "1992-12-10",
 									genre: "M",
-									document_number: "39000112",
-									identification_code_type: "cuil",
+									document_number: 39000112,
+									identification_code_type: "CUIL",
 									identification_code_number: "11/0",
 	})
 
