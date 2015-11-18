@@ -8,6 +8,7 @@ class ClientsController < ApplicationController
 	# GET /clients/1
 	def show
 		@client = Client.find(params[:id])
+		@age = calculate_age
 	end
 
 	# GET /clients/new (Equivalent to a "create")
@@ -55,6 +56,12 @@ class ClientsController < ApplicationController
 	    params.require(:client).permit(:firstname, :lastname, :document_number,
 	    															 :identification_code_type, :identification_code_number, 
 	    															 :genre, :birthdate)
+	  end
+
+	  def calculate_age
+	  	now = Date.today
+			birthdate = @client.birthdate
+			now.year - birthdate.year - (birthdate.to_time.change(:year => now.year) > now ? 1 : 0)
 	  end
 
 end
