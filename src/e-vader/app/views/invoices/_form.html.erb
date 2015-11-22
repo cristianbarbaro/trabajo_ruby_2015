@@ -1,9 +1,9 @@
 <div>
     <%= f.input :total_amount %>
-    <%= f.input :discharge_date %>
+    <%= f.input :discharge_date, :order => [:day, :month, :year], :start_year => 1920, :end_year => Time.new.year %>
     <%= select("invoice", "client_id", Client.all.collect {|c| [ c.firstname + ' ' + c.lastname, c.id ] }, {prompt: 'Seleccionar cliente'}) %>
     <%= f.input :description %>
-
+    
   <div class="pull-right">
     <%= link_to 'Volver al listado', invoices_path, class: "btn btn-default" %>
     <%= f.button :submit, :value => "Guardar", class: "btn-success" %>
