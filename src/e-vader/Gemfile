@@ -52,3 +52,6 @@ gem 'autoprefixer-rails'
 
 # Gem to forms, Simple Form
 gem 'simple_form'
+
+# View nice errors
+gem 'better_errors'
