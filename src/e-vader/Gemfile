@@ -55,3 +55,6 @@ gem 'simple_form'
 
 # View nice errors
 gem 'better_errors'
+
+# Rails i18n
+gem 'rails-i18n', '~> 4.0.0'
