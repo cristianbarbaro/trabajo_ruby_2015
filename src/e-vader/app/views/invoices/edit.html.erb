@@ -1,8 +1,7 @@
-<h1>Editar factura</h1>
+<h3 class="text-center">Editar factura</h3>
 
 <%= simple_form_for(@invoice) do |f| %>
 	 <input type="hidden" name="_method" value="put" >
   <%= f.error_notification %>
 	<%= render 'form', :f => f %>
-
 <% end %>
