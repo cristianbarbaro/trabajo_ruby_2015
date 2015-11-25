@@ -212,3 +212,14 @@ es:
         total_amount: "Monto total"
         discharge_date: "Fecha de emisión"
         description: "Descripción"
+      client:
+        firstname: "Nombres"
+        lastname: "Apellidos"
+        birthdate: "Fecha de nacimiento"
+        document_number: "Número de documento"
+        genre: "Género"
+        identification_code_type: "CUIL/CUIT"
+        identification_code_number: "Númdero de CUIL/CUIT"
+  simple_form:
+    error_notification: 
+      default_message: "Por favor, revise los campos en rojo:"
