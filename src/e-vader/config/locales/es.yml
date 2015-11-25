@@ -203,6 +203,10 @@ es:
       short: "%d de %b %H:%M"
     pm: pm
   activerecord:
+    models:
+      invoice: "factura"
+      client: "cliente"
+      contact: "contacto"
     attributes:
       invoice:
         total_amount: "Monto total"
