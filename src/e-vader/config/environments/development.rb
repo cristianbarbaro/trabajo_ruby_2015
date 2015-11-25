@@ -40,6 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Tells which locale is loaded in application
-  # config.i18n.available_locales = :es
+  config.i18n.available_locales = :es
 
 end
