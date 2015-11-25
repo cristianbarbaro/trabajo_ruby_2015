@@ -212,6 +212,7 @@ es:
         total_amount: "Monto total"
         discharge_date: "Fecha de emisión"
         description: "Descripción"
+        client_id: "Cliente"
       client:
         firstname: "Nombres"
         lastname: "Apellidos"
