@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
 	def show
 		@client = Client.find(params[:id])
 		@age = calculate_age
+		@annual_amount = amount_per_year
 	end
 
 	# GET /clients/new (Equivalent to a "create")
@@ -51,7 +52,7 @@ class ClientsController < ApplicationController
 	end
 
 	private
-		#Esto viene a hacerse el tema de la asignacion masiva:
+		# To mass assignment.
 	  def client_params
 	    params.require(:client).permit(:firstname, :lastname, :document_number,
 	    															 :identification_code_type, :identification_code_number, 
@@ -62,6 +63,11 @@ class ClientsController < ApplicationController
 	  	now = Date.today
 			birthdate = @client.birthdate
 			now.year - birthdate.year - (birthdate.to_time.change(:year => now.year) > now ? 1 : 0)
+	  end
+
+	  # Returns a hash when key is year and value is total amount per year.
+	  def amount_per_year
+	  	@client.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
 	  end
 
 end
