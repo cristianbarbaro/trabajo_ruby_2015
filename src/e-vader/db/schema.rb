@@ -14,27 +14,26 @@
 ActiveRecord::Schema.define(version: 20151125232920) do
 
   create_table "client_contacts", force: :cascade do |t|
-    t.integer "client_id",  null: false
-    t.integer "contact_id", null: false
+    t.integer "client_id"
+    t.integer "contact_id"
     t.string  "value",      null: false
   end
 
+  add_index "client_contacts", ["client_id"], name: "index_client_contacts_on_client_id"
+  add_index "client_contacts", ["contact_id"], name: "index_client_contacts_on_contact_id"
+
   create_table "clients", force: :cascade do |t|
-    t.string   "firstname",                  null: false
-    t.string   "lastname",                   null: false
-    t.date     "birthdate",                  null: false
-    t.string   "genre",                      null: false
-    t.string   "document_number",            null: false
-    t.string   "identification_code_type",   null: false
-    t.string   "identification_code_number", null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string "firstname",                  null: false
+    t.string "lastname",                   null: false
+    t.date   "birthdate",                  null: false
+    t.string "genre",                      null: false
+    t.string "document_number",            null: false
+    t.string "identification_code_type",   null: false
+    t.string "identification_code_number", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "contact_type", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string "contact_type", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -48,11 +47,9 @@ ActiveRecord::Schema.define(version: 20151125232920) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.string   "identification_code_type"
-    t.string   "identification_code_number"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string "name",                       null: false
+    t.string "identification_code_type",   null: false
+    t.string "identification_code_number", null: false
   end
 
 end
