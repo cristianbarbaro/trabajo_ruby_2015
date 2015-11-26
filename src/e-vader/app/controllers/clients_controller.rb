@@ -11,6 +11,7 @@ class ClientsController < ApplicationController
 		@age = calculate_age
 		@annual_amount = amount_per_year
 		@invoices_per_month = amount_invoice_per_month
+		@invoiced = invoiced_people
 	end
 
 	# GET /clients/new (Equivalent to a "create")
@@ -75,6 +76,13 @@ class ClientsController < ApplicationController
 	  def amount_invoice_per_month
 	  	current = Time.now.year.to_s
 	  	@client.invoices.group("strftime('%m',discharge_date)").having("strftime('%Y',discharge_date) = ?", current).count()
+	  end
+
+	  # Returns a hash with five people than has been more invoiced. 
+	  # Key is person_id and value is times invoiced amount.
+	  def invoiced_people
+	  	invoiced = @client.people.group(:person_id).limit(5).count
+	  	invoiced.sort_by {|key, value| value}.reverse.to_h
 	  end
 
 end

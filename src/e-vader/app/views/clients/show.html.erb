@@ -35,7 +35,14 @@
 					<li>El mes de <%= I18n.t("date.month_names")[month.to_i] %> emitió <%= amount %> facturas.</li>
 				<% end %>
 			</ul>
-
+		</div>
+		<div>
+			<strong>Las cinco personas más facturadas son:</strong>
+			<ol>
+				<% @invoiced.each do |person_id, amount_invoiced | %>
+					<li> La persona <strong><%= Person.find(person_id).name %></strong> ha sido facturada <%= amount_invoiced %> veces.</li>
+				<% end %>
+			</ol>
 		</div>
 		<div class="pull-right">
 			<%= link_to 'Volver', clients_path, class: "btn btn-default" %>
