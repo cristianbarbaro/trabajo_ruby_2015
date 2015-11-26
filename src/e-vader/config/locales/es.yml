@@ -207,6 +207,7 @@ es:
       invoice: "factura"
       client: "cliente"
       contact: "contacto"
+      person: "persona"
     attributes:
       invoice:
         total_amount: "Monto total"
@@ -220,7 +221,11 @@ es:
         document_number: "Número de documento"
         genre: "Género"
         identification_code_type: "CUIL/CUIT"
-        identification_code_number: "Númdero de CUIL/CUIT"
+        identification_code_number: "Número de CUIL/CUIT"
+      person:
+        name: "Nombre"
+        identification_code_type: "CUIL/CUIT"
+        identification_code_number: "Número de CUIL/CUIT"
   simple_form:
     error_notification: 
       default_message: "Por favor, revise los campos en rojo:"
