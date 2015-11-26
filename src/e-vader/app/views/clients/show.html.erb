@@ -28,6 +28,15 @@
 				<% end %>
 			</ul>
 		</div>
+		<div>
+			<strong>Cantidad de facturas emitidas por mes del corriente año:</strong>
+			<ul>
+				<% @invoices_per_month.each do |month, amount| %>
+					<li>El mes de <%= I18n.t("date.month_names")[month.to_i] %> emitió <%= amount %> facturas.</li>
+				<% end %>
+			</ul>
+
+		</div>
 		<div class="pull-right">
 			<%= link_to 'Volver', clients_path, class: "btn btn-default" %>
 			<%= link_to 'Editar', edit_client_path(@client), class: "btn btn-success" %>

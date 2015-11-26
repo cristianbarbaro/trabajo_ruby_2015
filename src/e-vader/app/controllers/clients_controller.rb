@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
 		@client = Client.find(params[:id])
 		@age = calculate_age
 		@annual_amount = amount_per_year
+		@invoices_per_month = amount_invoice_per_month
 	end
 
 	# GET /clients/new (Equivalent to a "create")
@@ -68,6 +69,11 @@ class ClientsController < ApplicationController
 	  # Returns a hash when key is year and value is total amount per year.
 	  def amount_per_year
 	  	@client.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
+	  end
+
+	  # Returns a hash when key is month and value is amount invoice per month.
+	  def amount_invoice_per_month
+	  	@client.invoices.group("strftime('%m',discharge_date)").having("strftime('%Y',discharge_date) = ?", Time.now.year.to_s).count()
 	  end
 
 end
