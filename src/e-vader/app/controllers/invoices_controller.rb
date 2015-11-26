@@ -24,13 +24,10 @@ class InvoicesController < ApplicationController
   # POST /invoices
   def create
     @invoice = Invoice.new(invoice_params)
-
-    respond_to do |format|
-      if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @invoice.save
+      redirect_to @invoice, notice: 'Invoice was successfully created.'
+    else
+      render :new
     end
   end
 
