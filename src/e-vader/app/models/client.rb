@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-	has_many :client_contacts
+	has_many :client_contacts, dependent: :destroy
 	has_many :contacts, through: :client_contacts
 	has_many :invoices
 	has_many :people, through: :invoices
