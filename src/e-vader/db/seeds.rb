@@ -103,6 +103,34 @@ direccion = Contact.create({
 	})
 
 
+### CLIENTS CONTACTS
+
+cristian_contact_1 = ClientContact.create ({
+									value: "0221-15-5529657",
+									client_id: cristian.id,
+									contact_id: telefono.id
+	})
+
+cristian_contact_2 = ClientContact.create ({
+									value: "12 y 63",
+									client_id: cristian.id,
+									contact_id: direccion.id
+	})
+
+cristian_contact_3 = ClientContact.create ({
+									value: "cristian@castlerock.com",
+									client_id: cristian.id,
+									contact_id: email.id
+	})
+
+cristian_contact_4 = ClientContact.create ({
+									value: "Ruta 2 km 44,5. El Peligro.",
+									client_id: cristian.id,
+									contact_id: direccion.id
+	})
+
+
+
 ### INVOICES
 
 invoice_1 = Invoice.create({
