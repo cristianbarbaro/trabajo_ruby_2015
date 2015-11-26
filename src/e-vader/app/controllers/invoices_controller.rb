@@ -9,6 +9,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   def show
     @client = Client.find(@invoice.client_id)
+    @person = Person.find(@invoice.person_id)
   end
 
   # GET /invoices/new
@@ -60,6 +61,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:description, :total_amount, :discharge_date, :client_id)
+      params.require(:invoice).permit(:description, :total_amount, :discharge_date, :client_id, :person_id)
     end
 end
