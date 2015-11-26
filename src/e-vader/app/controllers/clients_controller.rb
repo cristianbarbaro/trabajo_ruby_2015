@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+	before_action :get_client, only: [:show, :edit, :update, :destroy]
 
 	# GET /clients
 	def index
@@ -7,7 +8,6 @@ class ClientsController < ApplicationController
 
 	# GET /clients/1
 	def show
-		@client = Client.find(params[:id])
 		@age = calculate_age
 		@annual_amount = amount_per_year
 		@invoices_per_month = amount_invoice_per_month
@@ -21,8 +21,6 @@ class ClientsController < ApplicationController
 
 	# GET /clients/1/edit
 	def edit
-		@client = Client.find (params[:id])
-		render :edit
 	end
 
 	# POST /clients (Equivalent to a "store")
@@ -38,7 +36,6 @@ class ClientsController < ApplicationController
 
 	# PATCH/PUT /clients/1
 	def update
-		@client = Client.find(params[:id])
     if @client.update(client_params)
       redirect_to @client, notice: 'El cliente se ha actualizado exitosamente.'
     else
@@ -48,7 +45,6 @@ class ClientsController < ApplicationController
 
 	# DELETE /clients/1
 	def destroy
-		@client = Client.find(params[:id])
 		@client.destroy
 		redirect_to clients_url , notice: 'El cliente se ha eliminado exitosamente.'
 	end
@@ -61,21 +57,26 @@ class ClientsController < ApplicationController
 	    															 :genre, :birthdate)
 	  end
 
+	  def get_client
+	  	@client = Client.find(params[:id])
+	  end
+
 	  def calculate_age
 	  	now = Date.today
 			birthdate = @client.birthdate
 			now.year - birthdate.year - (birthdate.to_time.change(:year => now.year) > now ? 1 : 0)
 	  end
 
-	  # Returns a hash when key is year and value is total amount per year.
+	  # Returns a hash where key is year and value is total amount per year.
 	  def amount_per_year
 	  	@client.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
 	  end
 
-	  # Returns a hash when key is month and value is amount invoice per month.
+	  # Returns a hash where key is month and value is amount invoice per month.
 	  def amount_invoice_per_month
 	  	current = Time.now.year.to_s
-	  	@client.invoices.group("strftime('%m',discharge_date)").having("strftime('%Y',discharge_date) = ?", current).count()
+	  	@client.invoices.group("strftime('%m',discharge_date)")
+	  	.having("strftime('%Y',discharge_date) = ?", current).count()
 	  end
 
 	  # Returns a hash with five people than has been more invoiced. 
