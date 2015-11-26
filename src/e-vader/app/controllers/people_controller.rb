@@ -42,7 +42,6 @@ class PeopleController < ApplicationController
   def destroy
     @person.destroy
     redirect_to people_url, notice: 'La persona ha sido borrada exitosamente.'
-    end
   end
 
   private
