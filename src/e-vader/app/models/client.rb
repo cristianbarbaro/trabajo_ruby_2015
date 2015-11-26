@@ -6,6 +6,7 @@ class Client < ActiveRecord::Base
 
 	validates :firstname, :lastname, :document_number, :genre, :birthdate, presence: true
 	validates :identification_code_type, :identification_code_number, presence: true
-	validates :document_number, numericality: { only_integer: true }
+	validates :document_number, numericality: { only_integer: true, greater_than: 0 }
 	validates :identification_code_type, inclusion: { in: %w(CUIT CUIL) }
+	validates :genre, inclusion: { in: %w(M F) }
 end
