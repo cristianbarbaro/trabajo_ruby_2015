@@ -8,8 +8,6 @@ class CreateClients < ActiveRecord::Migration
     	t.string :document_number, null: false
     	t.string :identification_code_type, null: false
     	t.string :identification_code_number, null: false
-
-      t.timestamps null: false
     end
   end
 end
