@@ -1,6 +1,6 @@
 <div>
   <%= f.input :name %>
-  <%= f.input :identification_code_type %>
+  <%= f.input :identification_code_type, :collection => [["CUIL", "CUIL"], ["CUIT", "CUIT"]], as: :select %>
   <%= f.input :identification_code_number %>
 	<div class="pull-right">
 	  <%= link_to 'Volver al listado', people_path, class: "btn btn-default" %>
