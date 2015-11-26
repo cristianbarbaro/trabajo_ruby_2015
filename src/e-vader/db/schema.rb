@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20151125232920) do
     t.float    "total_amount",   null: false
     t.date     "discharge_date", null: false
     t.integer  "client_id",      null: false
+    t.integer  "person_id",      null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
