@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
 	def show
 		@age = calculate_age
 		@annual_amount = amount_per_year
+		@contacts = @client.client_contacts
 		@invoices_per_month = amount_invoice_per_month
 		@invoiced = invoiced_people
 	end

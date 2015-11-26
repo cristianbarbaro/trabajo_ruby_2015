@@ -21,6 +21,16 @@
 			<%= @client.identification_code_number %>
 		</p>
 		<div>
+			<strong>Medios de contacto: </strong>
+			<ul>
+				<% @contacts.each do |c| %>
+					<li><%= Contact.find(c.contact_id).contact_type %>: 
+						<%= c.value %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div>
 			<strong>Monto total por año:</strong>
 			<ul>
 				<% @annual_amount.each do |year, total| %>
