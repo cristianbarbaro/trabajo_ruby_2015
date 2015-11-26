@@ -2,6 +2,7 @@ require 'test_helper'
 
 class InvoicesControllerTest < ActionController::TestCase
   setup do
+#    @client = clients(:one)
     @invoice = invoices(:one)
   end
 
@@ -18,7 +19,12 @@ class InvoicesControllerTest < ActionController::TestCase
 
   test "should create invoice" do
     assert_difference('Invoice.count') do
-      post :create, invoice: { description: @invoice.description, discharge_date: @invoice.discharge_date, total_amount: @invoice.total_amount, user_id: @invoice.user_id }
+      post :create, invoice:{ description: @invoice.description, 
+                              discharge_date: @invoice.discharge_date, 
+                              total_amount: @invoice.total_amount, 
+                              client_id: @invoice.client_id, 
+                              person_id: @invoice.person_id 
+                            }
     end
 
     assert_redirected_to invoice_path(assigns(:invoice))
@@ -35,7 +41,12 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test "should update invoice" do
-    patch :update, id: @invoice, invoice: { description: @invoice.description, discharge_date: @invoice.discharge_date, total_amount: @invoice.total_amount, user_id: @invoice.user_id }
+    patch :update, id: @invoice, invoice: { description: @invoice.description, 
+                                            discharge_date: @invoice.discharge_date, 
+                                            total_amount: @invoice.total_amount, 
+                                            client_id: @invoice.client_id,
+                                            person_id: @invoice.person_id 
+                                          }
     assert_redirected_to invoice_path(assigns(:invoice))
   end
 
