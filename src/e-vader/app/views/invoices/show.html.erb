@@ -5,7 +5,11 @@
 <div class="container-fluid">
 	<div class="bg-warning">
 		<p>
-		  <strong>Datos de cliente:</strong>
+			<strong>Persona facturada: </strong>
+			<%= @person.name %>
+		</p>
+		<p>
+		  <strong>Cliente emisor:</strong>
 		  	<ul>
 		  		<li><strong>Nombre: </strong><%= @client.firstname + ' ' + @client.lastname%></li>
 		  		<li><strong><%= @client.identification_code_type %>: </strong>
@@ -23,7 +27,7 @@
 		</p>
 		<p>
 		  <strong>Fecha de emisión:</strong>
-		  <%= @invoice.discharge_date %>
+		  <%= @invoice.discharge_date.strftime("%d-%m-%Y") %>
 		</p>
 		<p>
 			<strong></strong>
