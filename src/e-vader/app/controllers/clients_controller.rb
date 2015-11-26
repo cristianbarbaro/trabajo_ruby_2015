@@ -73,7 +73,8 @@ class ClientsController < ApplicationController
 
 	  # Returns a hash when key is month and value is amount invoice per month.
 	  def amount_invoice_per_month
-	  	@client.invoices.group("strftime('%m',discharge_date)").having("strftime('%Y',discharge_date) = ?", Time.now.year.to_s).count()
+	  	current = Time.now.year.to_s
+	  	@client.invoices.group("strftime('%m',discharge_date)").having("strftime('%Y',discharge_date) = ?", current).count()
 	  end
 
 end
