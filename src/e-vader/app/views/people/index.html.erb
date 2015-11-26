@@ -1,0 +1,31 @@
+<p id="notice" class="bg-success"><%= notice %></p>
+
+<h3>Listado de Personas</h3>
+
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Nombre</th>
+      <th class="text-center">CUIL/CUIT</th>
+      <th class="text-center">Número de CUIL/CUIT</th>
+      <th class="text-center" colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.identification_code_type %></td>
+        <td><%= person.identification_code_number %></td>
+        <td><%= link_to 'Ver', person %></td>
+        <td><%= link_to 'Editar', edit_person_path(person) %></td>
+        <td><%= link_to 'Eliminar', person, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Persona', new_person_path, class: "btn btn-success pull-right" %>
