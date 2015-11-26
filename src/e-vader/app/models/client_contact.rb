@@ -1,4 +1,4 @@
 class ClientContact < ActiveRecord::Base
-	belongs_to :clients
-	belongs_to :contacts
+	belongs_to :client
+	belongs_to :contact
 end

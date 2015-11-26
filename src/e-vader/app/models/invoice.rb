@@ -1,6 +1,6 @@
 class Invoice < ActiveRecord::Base
-	belongs_to :clients
-	belongs_to :people
+	belongs_to :client
+	belongs_to :person
 
 	validates :description, :total_amount, :discharge_date, :client_id, :person_id, presence: true
 end
