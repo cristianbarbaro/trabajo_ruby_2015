@@ -24,7 +24,7 @@
 			<strong>Monto total por año:</strong>
 			<ul>
 				<% @annual_amount.each do |year, total| %>
-					<li>El año <%= year %> facturó <%= total %> </li>
+					<li>El año <%= year %> facturó $<%= total %> </li>
 				<% end %>
 			</ul>
 		</div>
