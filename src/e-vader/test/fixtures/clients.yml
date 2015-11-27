@@ -4,8 +4,20 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  firstname: "Cristian"
+  lastname: "Barbaro"
+  birthdate: "1988-04-22"
+  genre: "M"
+  document_number: 33681491
+  identification_code_type: "CUIL"
+  identification_code_number: "20/0"
+
+two:
+  firstname: "Daniel"
+  lastname: "Barbaro"
+  birthdate: "1998-04-22"
+  genre: "M"
+  document_number: 41000111
+  identification_code_type: "CUIL"
+  identification_code_number: "10/9"

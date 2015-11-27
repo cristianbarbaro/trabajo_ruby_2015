@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  identification_code_type: MyString
-  identification_code_number: MyString
+  name: Cristian Barbaro
+  identification_code_type: CUIL
+  identification_code_number: 20/0
 
 two:
   name: MyString

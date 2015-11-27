@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  value: MyString
+  value: La Plata
+  client: one
+  contact: one
 
 two:
-  value: MyString
+  value: El Peligro
+  client: two
+  contact: two
