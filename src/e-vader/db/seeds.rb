@@ -9,7 +9,7 @@
 
 ### CLIENTS:
 
-cristian = Client.create({
+cristian = Client.create!({
 									firstname: "Cristian",
 									lastname: "Barbaro",
 									birthdate: "1988-04-22",
@@ -19,7 +19,7 @@ cristian = Client.create({
 									identification_code_number: "20/0",
 	})
 
-juli = Client.create({
+juli = Client.create!({
 									firstname: "Julieta",
 									lastname: "Romero",
 									birthdate: "1995-08-14",
@@ -29,7 +29,7 @@ juli = Client.create({
 									identification_code_number: "17/0",
 	})
 
-ivan = Client.create({
+ivan = Client.create!({
 									firstname: "Ivan",
 									lastname: "Gianfelici",
 									birthdate: "1995-05-05",
@@ -39,7 +39,7 @@ ivan = Client.create({
 									identification_code_number: "17/4",
 	})
 
-braian = Client.create({
+braian = Client.create!({
 									firstname: "Braian Jonatan",
 									lastname: "Gianfelici",
 									birthdate: "1992-12-10",
@@ -49,40 +49,50 @@ braian = Client.create({
 									identification_code_number: "11/0",
 	})
 
+esteban = Client.create!({
+									firstname: "Esteban",
+									lastname: "Rey",
+									birthdate: "1963-11-10",
+									genre: "M",
+									document_number: 12000112,
+									identification_code_type: "CUIL",
+									identification_code_number: "14/7",
+	})
+
 
 ### PEOPLE
 
-person_juana = Person.create({
+person_juana = Person.create!({
 									name: "Juana Virginia",
 									identification_code_type: "CUIL",
 									identification_code_number: "12/6",
 	})
 
-person_unlp = Person.create({
+person_unlp = Person.create!({
 									name: "Universidad Nacional de La Plata",
 									identification_code_type: "CUIT",
 									identification_code_number: "22/6",
 	})
 
-person_nestor = Person.create({
+person_nestor = Person.create!({
 									name: "Néstor Pérez",
 									identification_code_type: "CUIL",
 									identification_code_number: "21/6",
 	})
 
-person_ricardo = Person.create({
+person_ricardo = Person.create!({
 									name: "Ricardo Fuerte",
 									identification_code_type: "CUIL",
 									identification_code_number: "11/6",
 	})
 
-person_ledesma = Person.create({
+person_ledesma = Person.create!({
 									name: "Ledesma",
 									identification_code_type: "CUIT",
 									identification_code_number: "22/6",
 	})
 
-person_pepitos = Person.create({
+person_pepitos = Person.create!({
 									name: "Pepitos",
 									identification_code_type: "CUIT",
 									identification_code_number: "11/6",
@@ -90,114 +100,106 @@ person_pepitos = Person.create({
 
 ### CONTACTS
 
-telefono = Contact.create({
+telefono = Contact.create!({
 									contact_type: "Teléfono",
 	})
 
-email = Contact.create({
+email = Contact.create!({
 									contact_type: "Correo electrónico",
 	})
 
-direccion = Contact.create({
+direccion = Contact.create!({
 									contact_type: "Dirección",
+	})
+
+facebook = Contact.create!({
+									contact_type: "Usuario de Facebook",
 	})
 
 
 ### CLIENTS CONTACTS
 
-cristian_contact_1 = ClientContact.create ({
+cristian_contact_1 = ClientContact.create! ({
 									value: "0221-15-5529657",
 									client_id: cristian.id,
 									contact_id: telefono.id
 	})
 
-cristian_contact_2 = ClientContact.create ({
+cristian_contact_2 = ClientContact.create! ({
 									value: "12 y 63",
 									client_id: cristian.id,
 									contact_id: direccion.id
 	})
 
-cristian_contact_3 = ClientContact.create ({
+cristian_contact_3 = ClientContact.create! ({
 									value: "cristian@castlerock.com",
 									client_id: cristian.id,
 									contact_id: email.id
 	})
 
-cristian_contact_4 = ClientContact.create ({
+cristian_contact_4 = ClientContact.create! ({
 									value: "Ruta 2 km 44,5. El Peligro.",
 									client_id: cristian.id,
 									contact_id: direccion.id
 	})
 
+juli_contact_1 = ClientContact.create! ({
+									value: "011-15-60054345",
+									client_id: juli.id,
+									contact_id: telefono.id
+	})
+
+ivan_contact_1 = ClientContact.create! ({
+									value: "Calle 420 y 208",
+									client_id: ivan.id,
+									contact_id: direccion.id
+	})
 
 
 ### INVOICES
 
-invoice_1 = Invoice.create({
+### Invoiced for Cristian:
+invoice_1 = Invoice.create!({
 									description: "Paga la cuota del cable (acá no hay subsidios).", 
 									total_amount: 550.00, 
-									discharge_date: "2015-11-24", 
+									discharge_date: "2013-11-24", 
 									client_id: cristian.id,
 									person_id: person_juana.id,
 	})
 
-invoice_2 = Invoice.create({
+invoice_2 = Invoice.create!({
 									description: "Pago de gas.", 
 									total_amount: 550.00, 
-									discharge_date: "2013-01-24", 
+									discharge_date: "2013-12-24", 
 									client_id: cristian.id,
 									person_id: person_nestor.id,
 	})
 
-invoice_3 = Invoice.create({
-									description: "Pago de luz.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-04-01", 
-									client_id: braian.id,
-									person_id: person_nestor.id,
-	})
-
-invoice_4 = Invoice.create({
+invoice_3 = Invoice.create!({
 									description: "Pago de impuestos.", 
 									total_amount: 550.00, 
-									discharge_date: "2014-04-01", 
+									discharge_date: "2014-03-12", 
 									client_id: cristian.id,
-									person_id: person_unlp.id,
+									person_id: person_pepitos.id,
 	})
 
-invoice_5 = Invoice.create({
-									description: "Pago de luz.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-04-01", 
-									client_id: braian.id,
-									person_id: person_nestor.id,
-	})
-
-invoice_6 = Invoice.create({
+invoice_4 = Invoice.create!({
 									description: "Pago de impuestos.", 
 									total_amount: 550.00, 
-									discharge_date: "2015-03-12", 
-									client_id: cristian.id,
-									person_id: person_unlp.id,
-	})
-
-invoice_7 = Invoice.create({
-									description: "Pago de impuestos.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-11-12", 
+									discharge_date: "2014-11-12", 
 									client_id: cristian.id,
 									person_id: person_ledesma.id,
 	})
 
-invoice_8 = Invoice.create({
+invoice_5 = Invoice.create!({
 									description: "Pago de impuestos.", 
 									total_amount: 550.00, 
 									discharge_date: "2015-04-12", 
 									client_id: cristian.id,
-									person_id: person_unlp.id,
+									person_id: person_pepitos.id,
 	})
 
-invoice_9 = Invoice.create({
+invoice_6 = Invoice.create!({
 									description: "Pago de impuestos.", 
 									total_amount: 600.00, 
 									discharge_date: "2015-05-12", 
@@ -205,3 +207,68 @@ invoice_9 = Invoice.create({
 									person_id: person_unlp.id,
 	})
 
+invoice_7 = Invoice.create!({
+									description: "Pago de impuestos.", 
+									total_amount: 550.00, 
+									discharge_date: "2015-06-01", 
+									client_id: cristian.id,
+									person_id: person_unlp.id,
+	})
+
+invoice_8 = Invoice.create!({
+									description: "Pago de impuestos.", 
+									total_amount: 600.00, 
+									discharge_date: "2015-07-12", 
+									client_id: cristian.id,
+									person_id: person_unlp.id,
+	})
+
+invoice_9 = Invoice.create!({
+									description: "Pago de impuestos por lectura.", 
+									total_amount: 550.00, 
+									discharge_date: "2015-11-01", 
+									client_id: cristian.id,
+									person_id: person_ricardo.id,
+	})
+
+# Invoiced for Braian:
+invoice_10 = Invoice.create!({
+									description: "Pago de luz abril.", 
+									total_amount: 550.00, 
+									discharge_date: "2014-04-01", 
+									client_id: braian.id,
+									person_id: person_nestor.id,
+	})
+
+invoice_11 = Invoice.create!({
+									description: "Pago de luz mayo.", 
+									total_amount: 550.00, 
+									discharge_date: "2014-05-01", 
+									client_id: braian.id,
+									person_id: person_nestor.id,
+	})
+
+invoice_12 = Invoice.create!({
+									description: "Pago de impuestos enero.", 
+									total_amount: 550.00, 
+									discharge_date: "2015-01-11", 
+									client_id: braian.id,
+									person_id: person_unlp.id,
+	})
+
+invoice_13 = Invoice.create!({
+									description: "Pago de impuestos febrero.", 
+									total_amount: 550.00, 
+									discharge_date: "2015-02-01", 
+									client_id: braian.id,
+									person_id: person_unlp.id,
+	})
+
+#Invoiced for Juli:
+invoice_14 = Invoice.create!({
+									description: "Pago de internet.", 
+									total_amount: 1550.00, 
+									discharge_date: "2015-10-01", 
+									client_id: juli.id,
+									person_id: person_ricardo.id,
+	})
