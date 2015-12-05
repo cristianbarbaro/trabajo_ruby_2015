@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'clients#index'
 
+  # Example for client's invoices:
+  resources :clients do
+    member do
+      get :invoices
+    end
+  end 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

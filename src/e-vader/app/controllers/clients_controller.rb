@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-	before_action :get_client, only: [:show, :edit, :update, :destroy]
+	before_action :get_client, only: [:show, :edit, :update, :destroy, :invoices]
 
 	# GET /clients
 	def index
@@ -42,6 +42,11 @@ class ClientsController < ApplicationController
     else
       render :edit
     end
+	end
+
+	def invoices
+		@invoices = @client.invoices()
+		render :invoices
 	end
 
 	# DELETE /clients/1
