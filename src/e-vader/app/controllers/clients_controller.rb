@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+
+	# Here I'm happy :)
+
 	before_action :get_client, only: [:show, :edit, :update, :destroy, :invoices]
 
 	# GET /clients
@@ -44,16 +47,21 @@ class ClientsController < ApplicationController
     end
 	end
 
-	def invoices
-		@invoices = @client.invoices()
-		render :invoices
-	end
-
 	# DELETE /clients/1
 	def destroy
 		@client.destroy
 		redirect_to clients_url , notice: 'El cliente se ha eliminado exitosamente.'
 	end
+
+	# Here I die.
+
+	# GET /clients/1/invoices
+	def invoices
+		@invoices = @client.invoices()
+		render :invoices
+	end
+
+	# Here I'm dead.
 
 	private
 		# To mass assignment.
@@ -91,5 +99,7 @@ class ClientsController < ApplicationController
 	  	invoiced = @client.people.group(:person_id).limit(5).count
 	  	invoiced.sort_by {|key, value| value}.reverse.to_h
 	  end
+
+	  # Here I'm not happy.
 
 end
