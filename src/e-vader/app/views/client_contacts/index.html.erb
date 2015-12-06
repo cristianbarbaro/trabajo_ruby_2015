@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="text-center">Información de contacto de: <%= @client.firstname %> <%= @client.lastname %></h3>
+
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Tipo de contacto</th>
+      <th class="text-center">Valor</th>
+      <th class="text-center" colspan="2">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.order(:contact_id).each do |c| %>
+      <tr>
+        <td><%= Contact.find(c.contact_id).contact_type %></td>
+        <td><%= c.value %></td>
+        <td><%= link_to 'Editar', edit_client_client_contact_path(@client, c) %></td>
+        <td><%= link_to 'Eliminar', {:action => "destroy", :client_id => @client.id, :controller => "client_contacts", :id => c.id}, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="pull-right">
+  <%= link_to 'Volver', client_path(@client), class: "btn btn-default" %>
+  <%= link_to 'Nuevo contacto', new_client_client_contact_path, class: 'btn btn-success' %>
+</div>
+

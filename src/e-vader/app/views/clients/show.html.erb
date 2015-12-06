@@ -21,16 +21,6 @@
 			<%= @client.identification_code_number %>
 		</p>
 		<div>
-			<strong>Medios de contacto: </strong>
-			<ul>
-				<% @contacts.each do |c| %>
-					<li><%= Contact.find(c.contact_id).contact_type %>: 
-						<%= c.value %>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<div>
 			<strong>Monto total por año:</strong>
 			<ul>
 				<% @annual_amount.each do |year, total| %>
@@ -57,7 +47,7 @@
 		<div class="pull-right">
 			<%= link_to 'Volver', clients_path, class: "btn btn-default" %>
 			<%= link_to 'Facturas', invoices_client_path, class: "btn btn-default" %>
-			<%= link_to 'Info contacto', client_contacts_path(@client.id,), class: "btn btn-default" %>
+			<%= link_to 'Info contacto', client_client_contacts_path(@client.id), class: "btn btn-default" %>
 			<%= link_to 'Editar', edit_client_path(@client), class: "btn btn-success" %>
 		</div>
 	</div>

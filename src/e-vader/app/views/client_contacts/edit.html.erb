@@ -1,0 +1,7 @@
+<h3 class="text-center">Editar información de contacto</h3>
+
+<%= simple_form_for([@client, @contact]) do |f| %>
+  <input type="hidden" name="_method" value="put" >
+  <%= f.error_notification %>
+	<%= render 'form', :f => f, :path => client_client_contacts_path %>
+<% end %>
