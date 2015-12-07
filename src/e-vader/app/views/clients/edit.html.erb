@@ -4,4 +4,32 @@
   <input type="hidden" name="_method" value="put" >
   <%= f.error_notification %>
   <%= render 'form', :f => f, :path => clients_path %>
+
+<%#	<div class="">
+		<strong>Medios de contacto: </strong> <%= link_to 'Editar', client_client_contacts_path(@client.id) %>
+<%#		<ul>
+			<% @contacts.each do |c| %>
+<%#				<li><%= Contact.find(c.contact_id).contact_type %>
+<%#					<%= c.value %>
+<%#				</li>
+			<% end %>
+<%#		</ul>
+	</div>
+%>
 <% end %>
+
+<%# 
+
+<button class="btn btn-success" id="new_contact">Agregar contacto</button>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		window.alert("hola;)");
+		$('#new_contact').click(function(){
+			//$('#add_contact').append('<strong>gato</strong>');
+			$("#add_contact").hide();
+  });
+
+</script>
+%>

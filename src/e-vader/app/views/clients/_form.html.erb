@@ -1,11 +1,17 @@
 <div class="">
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :birthdate, :order => [:day, :month, :year], :start_year => 1920, :end_year => Time.new.year %>
-    <%= f.input :document_number %>
-    <%= f.input :genre, :collection => [['Masculino', "M"], ['Femenino', "F"]], as: :select %>
-    <%= f.input :identification_code_type, :collection => [["CUIL", "CUIL"], ["CUIT", "CUIT"]], as: :select %>
-    <%= f.input :identification_code_number, required: true %>
+  <%= f.input :firstname %>
+  <%= f.input :lastname %>
+  <%= f.input :birthdate, :order => [:day, :month, :year], :start_year => 1920, :end_year => Time.new.year %>
+  <%= f.input :document_number %>
+  <%= f.input :genre, :collection => [['Masculino', "M"], ['Femenino', "F"]], as: :select %>
+  <%= f.input :identification_code_type, :collection => [["CUIL", "CUIL"], ["CUIT", "CUIT"]], as: :select %>
+  <%= f.input :identification_code_number, required: true %>
+
+  <div class="text-center"><strong>Contactos:</strong></div>
+  <hr>
+  
+  <%= render "form_contact", :f => f %>
+
   <div class="pull-right">
     <%= link_to 'Volver al listado', path, class: 'btn btn-default' %>
     <%= f.button :submit, class: "btn btn-success" %>

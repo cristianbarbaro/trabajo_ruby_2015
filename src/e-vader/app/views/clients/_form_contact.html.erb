@@ -1,0 +1,11 @@
+<%= f.simple_fields_for :client_contacts do |cc| %>
+  <div class="padding: 10px;">
+    <%= cc.input :contact_id, :collection => Contact.all.collect {|c| [c.contact_type, c.id] }, label: "Tipo de contacto", as: :select %>
+    <%= cc.input :value, label: "Valor de contacto" %>
+    <%= cc.hidden_field :client_id %>
+    <%= cc.hidden_field :id %>
+    <%#= cc.label :_destroy, "Eliminar contacto" %>
+    <%= cc.input :_destroy, as: :boolean, label: "Eliminar" %>
+  </div>
+  <hr>
+<% end %>

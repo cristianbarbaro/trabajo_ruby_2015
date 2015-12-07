@@ -21,6 +21,7 @@ class ClientsController < ApplicationController
 	# GET /clients/new (Equivalent to a "create")
 	def new
 		@client = Client.new
+		@client.client_contacts.build
 	end
 
 	# GET /clients/1/edit
@@ -40,6 +41,7 @@ class ClientsController < ApplicationController
 
 	# PATCH/PUT /clients/1
 	def update
+		#render plain: params[:client].inspect
     if @client.update(client_params)
       redirect_to @client, notice: 'El cliente se ha actualizado exitosamente.'
     else
@@ -68,7 +70,8 @@ class ClientsController < ApplicationController
 	  def client_params
 	    params.require(:client).permit(:firstname, :lastname, :document_number,
 	    															 :identification_code_type, :identification_code_number, 
-	    															 :genre, :birthdate)
+	    															 :genre, :birthdate, client_contacts_attributes: 
+	    															 													[:id, :value, :contact_id, :client_id, :_destroy])
 	  end
 
 	  def get_client
