@@ -1,6 +1,7 @@
 class Client < ActiveRecord::Base
-	has_many :client_contacts, dependent: :destroy
+	has_many :client_contacts, dependent: :destroy, inverse_of: :client
 	has_many :contacts, through: :client_contacts
+	accepts_nested_attributes_for :client_contacts, reject_if: :all_blank, :allow_destroy => true
 	has_many :invoices
 	has_many :people, through: :invoices
 
