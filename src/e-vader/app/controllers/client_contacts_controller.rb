@@ -18,7 +18,7 @@ class ClientContactsController < ApplicationController
 	def create
 		@contact = ClientContact.new(client_contact_params)
     if @contact.save
-      redirect_to client_client_contacts_url, notice: 'La información de ClientContactsController se ha creado exitosamente.'
+      redirect_to client_client_contacts_url, notice: 'La información de contacto se ha creado exitosamente.'
     else
     	@client = Client.find(params[:client_id])
       render :new
