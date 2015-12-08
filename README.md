@@ -15,6 +15,8 @@
 
 ### ¿Cómo funciona la aplicación?
 
+Los datos de nuestra aplicación se almacenan en bases de datos `SQlite`.  
+
 #### Sobre los clientes:
 
 * Al acceder al `index` de la aplicación se mostrará una lista con los clientes que realizan facturación. Desde allí usted puede ver información detallada, editar y eliminar un cliente.
@@ -37,3 +39,9 @@
 
 * Para listar todas las facturas (sin tener en cuenta si es de un cliente en particular, se listan todas) debe acceder a `/invoices`. Allí cuenta con las opciones para agregar, ver, editar y eliminar facturas.
 * Si lo que desea es ver las facturas de un cliente en particular, debe acceder desde la opción desde `Clientes`.
+
+#### Sobre los tests:
+
+* Hay una serie de tests que analizan la funcionalidad del sistema. Se cuenta con tests a algunos controladores y a modelos.
+* Para correr todos los tests basta con ejecutar `bundle exec rake test`.
+* Si se desea correr los tests para los modelos, se ejecuta `bundle exec rake test:models`, análogo si se desea correr los tests de los controladores: `bundle exec rake test:controllers`. Estos últimos no se piden como parte de la entrega, pero no está de más pegarle una testeada para quedarnos tranquilos de que algo funciona bien.
