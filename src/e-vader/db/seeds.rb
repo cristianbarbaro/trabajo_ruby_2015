@@ -14,7 +14,7 @@ cristian = Client.create!({
 									lastname: "Barbaro",
 									birthdate: "1988-04-22",
 									genre: "M",
-									document_number: 336814910,
+									document_number: 33681491,
 									identification_code_type: "CUIL",
 									identification_code_number: "20/0",
 	})
