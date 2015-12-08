@@ -3,20 +3,20 @@ Rails.application.routes.draw do
   resources :people
   resources :invoices
   resources :clients
-#  resources :contacts
+  resources :contacts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'clients#index'
- 
+
   resources :clients do
-    resources :client_contacts, path: :contacts
+  #  resources :client_contacts, path: :contacts
     member do
       get :invoices
     end
-  end 
+  end
 
  # resources :clients do
  #   resources :client_contacts, path: :contacts
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 #  scope 'clients/:client_id' do
 #    resources :client_contacts, path: :contacts
 #  end
-  
+
   # Routes to contact information of a client:
 
 #  get 'clients/:id/contacts/' => 'clients#client_contacts'
