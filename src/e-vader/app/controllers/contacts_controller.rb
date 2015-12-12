@@ -36,8 +36,13 @@ class ContactsController < ApplicationController
 	end
 
 	def destroy
-		@contact.destroy
-		flash[:success] = 'El tipo de contacto se ha eliminado exitosamente.'
+		cc = @contact.client_contacts
+		if cc.empty?
+			@contact.destroy
+			flash[:success] = 'El tipo de contacto se ha eliminado exitosamente.'
+		else
+			flash[:alert] = 'No se puede eliminar el tipo de contacto porque tiene usuarios asociados.'
+		end
 		redirect_to contacts_url
 	end
 

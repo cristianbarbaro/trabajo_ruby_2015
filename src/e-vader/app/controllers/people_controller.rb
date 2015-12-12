@@ -42,8 +42,13 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1
   def destroy
-    @person.destroy
-    flash[:success] = 'La persona ha sido borrada exitosamente.'
+    invoices = @person.invoices
+    if invoices.empty?
+      @person.destroy
+      flash[:success] = 'La persona ha sido borrada exitosamente.'
+    else
+      flash[:alert] = 'No se puede eliminar la persona porque tiene facturas asociadas. Antes debe eliminar sus facturas.'
+    end
     redirect_to people_url
   end
 
