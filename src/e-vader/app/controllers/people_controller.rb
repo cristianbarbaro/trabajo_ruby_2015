@@ -23,7 +23,8 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     if @person.save
-      redirect_to @person, notice: 'La persona ha sido creada exitosamente.'
+      flash[:success] = 'La persona ha sido creada exitosamente.'
+      redirect_to @person
     else
       render :new
     end
@@ -32,7 +33,8 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   def update
     if @person.update(person_params)
-      redirect_to @person, notice: 'La persona ha sido actualizada exitosamente.'
+      flash[:success] = 'La persona ha sido actualizada exitosamente.'
+      redirect_to @person
     else
       render :edit
     end
@@ -41,7 +43,8 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   def destroy
     @person.destroy
-    redirect_to people_url, notice: 'La persona ha sido borrada exitosamente.'
+    flash[:success] = 'La persona ha sido borrada exitosamente.'
+    redirect_to people_url
   end
 
   private

@@ -25,7 +25,8 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new(invoice_params)
     if @invoice.save
-      redirect_to @invoice, notice: 'Invoice was successfully created.'
+      flash[:success] =  'La factura fue correctamente creada.'
+      redirect_to @invoice
     else
       render :new
     end
@@ -33,30 +34,26 @@ class InvoicesController < ApplicationController
 
   # PATCH/PUT /invoices/1
   def update
-    respond_to do |format|
-      if @invoice.update(invoice_params)
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @invoice.update(invoice_params)
+      flash[:success] = 'La factura fue correctamente actualizada.'
+      redirect_to @invoice
+    else
+      render :edit
     end
   end
 
   # DELETE /invoices/1
   def destroy
     @invoice.destroy
-    respond_to do |format|
-      format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
-    end
+    flash[:success] = 'La factura fue eliminada.'
+    redirect_to invoices_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_invoice
       @invoice = Invoice.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
       params.require(:invoice).permit(:description, :total_amount, :discharge_date, :client_id, :person_id)
     end

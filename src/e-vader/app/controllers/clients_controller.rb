@@ -33,7 +33,8 @@ class ClientsController < ApplicationController
 		#render plain: params[:client].inspect
 		@client = Client.new(client_params)
     if @client.save
-      redirect_to @client, notice: 'El cliente se ha creado exitosamente.'
+    	flash[:success] = 'El cliente se ha creado exitosamente.'
+      redirect_to @client
     else
       render :new
     end
@@ -43,7 +44,8 @@ class ClientsController < ApplicationController
 	def update
 		#render plain: params[:client].inspect
     if @client.update(client_params)
-      redirect_to @client, notice: 'El cliente se ha actualizado exitosamente.'
+    	flash[:success] = 'El cliente se ha actualizado exitosamente.'
+      redirect_to @client
     else
       render :edit
     end
@@ -51,8 +53,14 @@ class ClientsController < ApplicationController
 
 	# DELETE /clients/1
 	def destroy
-		@client.destroy
-		redirect_to clients_url , notice: 'El cliente se ha eliminado exitosamente.'
+		invoices = @client.invoices
+		if invoices.empty? 
+			@client.destroy
+			flash[:success] = 'El cliente se ha eliminado exitosamente.'
+		else
+			flash[:alert] = 'No se puede eliminar el cliente porque tiene facturas asociadas. Antes debe eliminar sus facturas.'
+		end
+		redirect_to clients_url
 	end
 
 	# Here I die.

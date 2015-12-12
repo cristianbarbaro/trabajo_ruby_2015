@@ -19,7 +19,8 @@ class ContactsController < ApplicationController
 	def create
 		@contact = Contact.new(params.require(:contact).permit(:contact_type))
 		if @contact.save
-      redirect_to @contact, notice: 'El tipo de contacto se ha creado exitosamente.'
+			flash[:success] =  'El tipo de contacto se ha creado exitosamente.'
+      redirect_to @contact
     else
       render :new
     end
@@ -27,7 +28,8 @@ class ContactsController < ApplicationController
 
 	def update
 		if @contact.update(params.require(:contact).permit(:contact_type))
-			redirect_to @contact, notice: "El tipo de contacto se ha actualizado correctamente"
+			flash[:success] =  "El tipo de contacto se ha actualizado correctamente"
+			redirect_to @contact
 		else
 			render :edit
 		end
@@ -35,7 +37,8 @@ class ContactsController < ApplicationController
 
 	def destroy
 		@contact.destroy
-		redirect_to contacts_url , notice: 'El tipo de contacto se ha eliminado exitosamente.'
+		flash[:success] = 'El tipo de contacto se ha eliminado exitosamente.'
+		redirect_to contacts_url
 	end
 
 	private
