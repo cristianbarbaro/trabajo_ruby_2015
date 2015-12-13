@@ -53,9 +53,7 @@ class ClientsController < ApplicationController
 
 	# DELETE /clients/1
 	def destroy
-		invoices = @client.invoices
-		if invoices.empty? 
-			@client.destroy
+		if @client.destroy
 			flash[:success] = 'El cliente se ha eliminado exitosamente.'
 		else
 			flash[:alert] = 'No se puede eliminar el cliente porque tiene facturas asociadas. Antes debe eliminar sus facturas.'
