@@ -21,3 +21,12 @@ two:
   document_number: 41000111
   identification_code_type: "CUIL"
   identification_code_number: "10/9"
+
+three:
+  firstname: "Vago"
+  lastname: "Atorrante"
+  birthdate: "1978-01-01"
+  genre: "M"
+  document_number: 12345678
+  identification_code_type: "CUIL"
+  identification_code_number: "12/3"
