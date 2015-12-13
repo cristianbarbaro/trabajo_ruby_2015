@@ -17,6 +17,7 @@ cristian = Client.create!({
 									document_number: 33681491,
 									identification_code_type: "CUIL",
 									identification_code_number: "20/0",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"123456789", "client_id"=>"", "id"=>""}}
 	})
 
 juli = Client.create!({
@@ -27,6 +28,7 @@ juli = Client.create!({
 									document_number: 39888445,
 									identification_code_type: "CUIL",
 									identification_code_number: "17/0",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"123456789", "client_id"=>"", "id"=>""}}
 	})
 
 ivan = Client.create!({
@@ -37,6 +39,7 @@ ivan = Client.create!({
 									document_number: 39115902,
 									identification_code_type: "CUIL",
 									identification_code_number: "17/4",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"123456789", "client_id"=>"", "id"=>""}}
 	})
 
 braian = Client.create!({
@@ -47,6 +50,7 @@ braian = Client.create!({
 									document_number: 39000112,
 									identification_code_type: "CUIL",
 									identification_code_number: "11/0",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"123456789", "client_id"=>"", "id"=>""}}
 	})
 
 esteban = Client.create!({
@@ -57,6 +61,7 @@ esteban = Client.create!({
 									document_number: 12000112,
 									identification_code_type: "CUIL",
 									identification_code_number: "14/7",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"123456789", "client_id"=>"", "id"=>""}}
 	})
 
 
