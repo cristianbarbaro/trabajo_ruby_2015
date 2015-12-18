@@ -1,56 +1,62 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_client_invoice, only: [:show, :edit, :update, :destroy]
 
-  # GET /invoices
+  # GET /clients/1/invoices
   def index
-    @invoices = Invoice.all
+    @client = Client.find(params[:client_id])
+    @invoices = Invoice.where(client_id: params[:client_id])
   end
 
-  # GET /invoices/1
+  # GET /clients/1/invoices/1
   def show
     @client = Client.find(@invoice.client_id)
     @person = Person.find(@invoice.person_id)
+    #redirect_to client_invoice_url(@invoice.client_id, @invoice.id)
   end
 
-  # GET /invoices/new
+  # GET /clients/1/invoices/new
   def new
+    @client = Client.find(params[:client_id])
     @invoice = Invoice.new
+    #redirect_to client_invoice_url
   end
 
-  # GET /invoices/1/edit
+  # GET /clients/1/invoices/1/edit
   def edit
   end
 
-  # POST /invoices
+  # POST /clients/1/invoices
   def create
+    @client = Client.find(params[:client_id])
     @invoice = Invoice.new(invoice_params)
     if @invoice.save
       flash[:success] =  'La factura fue correctamente creada.'
-      redirect_to @invoice
+      redirect_to client_invoice_url(@client, @invoice)
     else
       render :new
     end
   end
 
-  # PATCH/PUT /invoices/1
+  # PATCH/PUT /clients/1/invoices/1
   def update
     if @invoice.update(invoice_params)
       flash[:success] = 'La factura fue correctamente actualizada.'
-      redirect_to @invoice
+      redirect_to client_invoice_url
     else
       render :edit
     end
   end
 
-  # DELETE /invoices/1
+  # DELETE /clients/1/invoices/1
   def destroy
     @invoice.destroy
     flash[:success] = 'La factura fue eliminada.'
-    redirect_to invoices_url
+    redirect_to client_invoices_url
   end
 
   private
-    def set_invoice
+    def set_client_invoice
+      @client = Client.find(params[:client_id])
       @invoice = Invoice.find(params[:id])
     end
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   resources :people
-  resources :invoices
-  resources :clients
+#  resources :invoices
+#  resources :clients
   resources :contacts
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   root 'clients#index'
 
   resources :clients do
-  #  resources :client_contacts, path: :contacts
-    member do
-      get :invoices
-    end
+#    member do
+#      get :invoices
+#    end
+    resources :invoices
   end
 
  # resources :clients do

@@ -1,12 +1,17 @@
 <div>
-    <%= f.input :client_id, :collection => Client.all.collect {|c| [ c.firstname + ' ' + c.lastname, c.id ] }, as: :select %>
-    <%= f.input :person_id, :collection => Person.all.collect {|c| [ c.name + ', ' + c.identification_code_type + ' ' + c.identification_code_number, c.id ] }, as: :select %> 
+    <%#= f.input :client_id, :collection => Client.all.collect {|c| [ c.firstname + ' ' + c.lastname, c.id ] }, as: :select %>
+    <div class="form-group">
+      <strong>Cliente: </strong>
+        <%= @client.firstname %> <%= @client.lastname %>
+    </div>
+    <%= f.hidden_field :client_id, value: @client.id %>
+    <%= f.input :person_id, :collection => Person.all.collect {|c| [ c.name + ', ' + c.identification_code_type + ' ' + c.identification_code_number, c.id ] }, as: :select %>
     <%= f.input :total_amount %>
     <%= f.input :discharge_date, :order => [:day, :month, :year], :start_year => 1920, :end_year => Time.new.year %>
     <%#= select("invoice", "client_id", Client.all.collect {|c| [ c.firstname + ' ' + c.lastname, c.id ] }, {prompt: 'Seleccionar cliente'}) %>
     <%= f.input :description %>
   <div class="pull-right">
-    <%= link_to 'Volver al listado', invoices_path, class: "btn btn-default" %>
+    <%= link_to 'Volver al listado', client_invoices_path(@client.id), class: "btn btn-default" %>
     <%= f.button :submit, class: "btn-success" %>
   </div>
 </div>

@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h3 class="text-center">Facturas</h3>
+<h3 class="text-center">Facturas de cliente: <%= @client.firstname %> <%= @client.lastname %></h3>
 
 <table class="table table-bordered text-center">
   <thead>
     <tr>
       <th class="text-center">Cliente emisor</th>
+      <th class="text-center">Persona facturada</th>
       <th class="text-center">Monto total</th>
       <th class="text-center">Fecha de emisión</th>
       <th class="text-center">Descripción</th>
@@ -17,12 +18,13 @@
     <% @invoices.order(discharge_date: :desc).each do |invoice| %>
       <tr>
         <td><%= Client.find(invoice.client_id).firstname %></td>
+        <td><%= Person.find(invoice.person_id).name %></td>
         <td>$ <%= invoice.total_amount %></td>
         <td><%= invoice.discharge_date.strftime("%d-%m-%Y") %></td>
         <td><%= invoice.description %></td>
-        <td><%= link_to 'Ver', invoice %></td>
-        <td><%= link_to 'Editar', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Eliminar', invoice, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        <td><%= link_to 'Ver', client_invoice_path(invoice.client_id, invoice.id) %></td>
+        <td><%= link_to 'Editar', edit_client_invoice_path(invoice.client_id, invoice.id) %></td>
+        <td><%= link_to 'Eliminar', client_invoice_path(invoice.client_id, invoice.id), method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +32,4 @@
 
 <br>
 
-<%= link_to 'Nueva factura', new_invoice_path, class: 'btn btn-success pull-right' %>
+<%= link_to 'Nueva factura', new_client_invoice_path, class: 'btn btn-success pull-right' %>

@@ -22,7 +22,7 @@
 			<strong>Medios de contacto: </strong>
 			<ul>
 				<% @contacts.each do |c| %>
-					<li><%= Contact.find(c.contact_id).contact_type %>: 
+					<li><%= Contact.find(c.contact_id).contact_type %>:
 						<%= c.value %>
 					</li>
 				<% end %>
@@ -54,7 +54,7 @@
 		</div>
 		<div class="pull-right">
 			<%= link_to 'Volver', clients_path, class: "btn btn-default" %>
-			<%= link_to 'Facturas', invoices_client_path, class: "btn btn-default" %>
+			<%= link_to 'Facturas', client_invoices_path(@client.id), class: "btn btn-default" %>
 			<%= link_to 'Editar', edit_client_path(@client), class: "btn btn-success" %>
 		</div>
 	</div>
