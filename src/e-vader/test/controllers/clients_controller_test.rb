@@ -14,6 +14,7 @@ class ClientsControllerTest < ActionController::TestCase
       												birthdate: @client.birthdate,
       												identification_code_number: @client.identification_code_number, 
       												identification_code_type: @client.identification_code_type, 
+                              client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"1515151", "client_id"=>"", "id"=>""}}
       											}
     end
     assert_redirected_to client_path(assigns(:client))
