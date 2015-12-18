@@ -12,8 +12,9 @@
       <ul class="nav navbar-nav">
         <a class="navbar-brand" href="/">E-Vader</a>
         <li class="<%= 'active' if current_page?(root_path) %>" ><%= link_to 'Inicio', root_path %></li>
-        <li class="<%= 'active' if current_page?(people_path) %>" ><%= link_to 'Personas', people_path %></li>
         <li class="<%= 'active' if current_page?(clients_path) %> "><%= link_to 'Clientes', clients_path %></li>
+        <li class="<%= 'active' if current_page?(people_path) %>" ><%= link_to 'Personas', people_path %></li>
+        <li class="<%= 'active' if current_page?(contacts_path) %>" ><%= link_to 'Tipos contactos', contacts_path %></li>
       </ul>
     </div>
 </nav>
