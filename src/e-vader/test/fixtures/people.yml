@@ -7,5 +7,10 @@ one:
 
 two:
   name: MyString
-  identification_code_type: MyString
-  identification_code_number: MyString
+  identification_code_type: CUIL
+  identification_code_number: 20/1
+
+three:
+  name: MyString
+  identification_code_type: CUIL
+  identification_code_number: 20/2
