@@ -1,9 +1,0 @@
-<div class="">
-    <%= f.input :value %>
-    <%= f.input :contact_id, :collection => Contact.all.collect { |c| [c.contact_type, c.id ]}, as: :select, label: "Tipo de contacto" %>
-    <%= f.hidden_field :client_id, :value => @client.id%>
-  <div class="pull-right">
-    <%= link_to 'Volver', path, class: 'btn btn-default' %>
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div> 
-</div>

@@ -1,6 +1,0 @@
-<h3 class="text-center">Agregar información de contacto para <%= @client.firstname %> <%= @client.lastname %></h3>
-
-<%= simple_form_for([@client, @contact]) do |f| %>
-  <%= f.error_notification %>
-	<%= render 'form', :f => f, :path => client_client_contacts_path %>
-<% end %>
