@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <a class="navbar-brand" href="/">E-Vader</a>
+        <li class="<%= 'active' if current_page?(root_path) %>" ><%= link_to 'Inicio', root_path %></li>
+        <li class="<%= 'active' if current_page?(people_path) %>" ><%= link_to 'Personas', people_path %></li>
+        <li class="<%= 'active' if current_page?(clients_path) %> "><%= link_to 'Clientes', clients_path %></li>
+      </ul>
+    </div>
+</nav>
 
 <div class="col-md-6 col-md-offset-3">
 	<% if flash[:success] %>
@@ -17,6 +27,5 @@
 	<% end %>
 	<%= yield %>
 </div>
-<a href="/"><button class="btn btn-default">Inicio</button></a>
 </body>
 </html>
