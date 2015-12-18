@@ -75,8 +75,8 @@ class ClientsController < ApplicationController
 		# To mass assignment.
 	  def client_params
 	    params.require(:client).permit(:firstname, :lastname, :document_number,
-	    															 :identification_code_type, :identification_code_number, 
-	    															 :genre, :birthdate, client_contacts_attributes: 
+	    															 :identification_code_type, :identification_code_number,
+	    															 :genre, :birthdate, client_contacts_attributes:
 	    															 													[:id, :value, :contact_id, :client_id, :_destroy])
 	  end
 
@@ -102,7 +102,7 @@ class ClientsController < ApplicationController
 	  	.having("strftime('%Y',discharge_date) = ?", current).count()
 	  end
 
-	  # Returns a hash with five people than has been more invoiced. 
+	  # Returns a hash with five people than has been more invoiced.
 	  # Key is person_id and value is times invoiced amount.
 	  def invoiced_people
 	  	invoiced = @client.people.group(:person_id).limit(5).count
