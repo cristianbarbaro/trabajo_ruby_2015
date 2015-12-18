@@ -31,5 +31,7 @@
 </table>
 
 <br>
-
-<%= link_to 'Nueva factura', new_client_invoice_path, class: 'btn btn-success pull-right' %>
+<div class="pull-right">
+  <%= link_to 'Volver', client_path(@client), class: "btn btn-default" %>
+  <%= link_to 'Nueva factura', new_client_invoice_path, class: 'btn btn-success' %>
+</div>
