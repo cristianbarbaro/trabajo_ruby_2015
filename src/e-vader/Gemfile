@@ -43,7 +43,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   # Nice errors.
   gem "better_errors"
 end
@@ -61,3 +61,6 @@ gem 'rails-i18n', '~> 4.0.0'
 
 # To add and remove fields form in nested attributes.
 gem 'nested_form_fields'
+
+# Validates dates.
+gem 'date_validator'

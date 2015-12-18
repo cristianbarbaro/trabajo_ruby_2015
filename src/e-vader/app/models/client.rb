@@ -13,5 +13,8 @@ class Client < ActiveRecord::Base
 	validates :identification_code_type, inclusion: { in: %w(CUIT CUIL) }
 	validates :genre, inclusion: { in: %w(M F) }
 	validates :firstname, :lastname, format: { with: /\A[a-zA-Z\s]+\z/ }
+	validates :birthdate, date: { after: Proc.new { Time.now - 95.year },
+																before: Proc.new { Time.now }
+															}
 #	validates :identification_code_number, format: { with: /\A[\d{2}]+\/+[\d{1}]+\z/ }
 end
