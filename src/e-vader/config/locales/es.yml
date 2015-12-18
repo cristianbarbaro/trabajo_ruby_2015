@@ -10,7 +10,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -36,7 +36,7 @@ es:
       long: "%d de %B de %Y"
       short: "%d de %b"
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo
@@ -215,6 +215,7 @@ es:
         discharge_date: "Fecha de emisión"
         description: "Descripción"
         client_id: "Cliente"
+        person_id: "Persona"
       client:
         firstname: "Nombres"
         lastname: "Apellidos"
@@ -231,5 +232,5 @@ es:
         value: "Valor"
         contact_type: "Tipo de contacto"
   simple_form:
-    error_notification: 
+    error_notification:
       default_message: "Por favor, revise los campos en rojo:"
