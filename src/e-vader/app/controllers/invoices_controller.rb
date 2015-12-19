@@ -1,21 +1,19 @@
 class InvoicesController < ApplicationController
-  before_action :set_client_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_client
 
   # GET /clients/1/invoices
   def index
-    @client = Client.find(params[:client_id])
     @invoices = Invoice.where(client_id: params[:client_id])
   end
 
   # GET /clients/1/invoices/1
   def show
-    @client = Client.find(@invoice.client_id)
     @person = Person.find(@invoice.person_id)
   end
 
   # GET /clients/1/invoices/new
   def new
-    @client = Client.find(params[:client_id])
     @invoice = Invoice.new
   end
 
@@ -25,7 +23,6 @@ class InvoicesController < ApplicationController
 
   # POST /clients/1/invoices
   def create
-    @client = Client.find(params[:client_id])
     @invoice = Invoice.new(invoice_params)
     if @invoice.save
       flash[:success] =  'La factura fue correctamente creada.'
@@ -53,9 +50,12 @@ class InvoicesController < ApplicationController
   end
 
   private
-    def set_client_invoice
-      @client = Client.find(params[:client_id])
+    def set_invoice
       @invoice = Invoice.find(params[:id])
+    end
+
+    def set_client
+      @client = Client.find(params[:client_id])
     end
 
     def invoice_params
