@@ -58,6 +58,6 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:name, :identification_code_type, :identification_code_number)
+      params.require(:person).permit(:name, :identification_code_type, :identification_code_number, :person_type)
     end
 end

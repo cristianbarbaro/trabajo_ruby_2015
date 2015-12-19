@@ -4,6 +4,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name, null: false
       t.string :identification_code_type, null: false
       t.string :identification_code_number, null: false
+      t.string :person_type, null: false
     end
   end
 end

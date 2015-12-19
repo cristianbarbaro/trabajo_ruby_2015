@@ -225,9 +225,10 @@ es:
         identification_code_type: "CUIL/CUIT"
         identification_code_number: "Número de CUIL/CUIT"
       person:
-        name: "Nombre"
+        name: "Nombre / Razón social"
         identification_code_type: "CUIL/CUIT"
         identification_code_number: "Número de CUIL/CUIT"
+        person_type: "Tipo de persona"
       client_contact:
         value: "Valor"
         contact_type: "Tipo de contacto"

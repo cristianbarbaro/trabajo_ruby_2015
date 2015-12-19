@@ -1,5 +1,6 @@
 <div>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Nombre / Razón social" %>
+  <%= f.input :person_type, :collection => [["FISICA", "FISICA"], ["JURIDICA", "JURIDICA"]], as: :select %>
   <%= f.input :identification_code_type, :collection => [["CUIL", "CUIL"], ["CUIT", "CUIT"]], as: :select %>
   <%= f.input :identification_code_number %>
 	<div class="pull-right">

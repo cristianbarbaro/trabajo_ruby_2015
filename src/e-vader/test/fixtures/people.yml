@@ -4,13 +4,16 @@ one:
   name: Cristian Barbaro
   identification_code_type: CUIL
   identification_code_number: 20/0
+  person_type: FISICA
 
 two:
   name: MyString
   identification_code_type: CUIL
   identification_code_number: 20/1
+  person_type: JURIDICA
 
 three:
   name: MyString
   identification_code_type: CUIL
   identification_code_number: 20/2
+  person_type: JURIDICA

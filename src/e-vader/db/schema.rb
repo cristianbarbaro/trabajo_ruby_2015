@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151125232920) do
     t.string "name",                       null: false
     t.string "identification_code_type",   null: false
     t.string "identification_code_number", null: false
+    t.string "person_type",                null: false
   end
 
 end

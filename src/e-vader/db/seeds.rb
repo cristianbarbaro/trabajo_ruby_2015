@@ -71,36 +71,42 @@ person_juana = Person.create!({
 									name: "Juana Virginia",
 									identification_code_type: "CUIL",
 									identification_code_number: "12/6",
+									person_type: "FISICA"
 	})
 
 person_unlp = Person.create!({
 									name: "Universidad Nacional de La Plata",
 									identification_code_type: "CUIT",
 									identification_code_number: "22/6",
+									person_type: "JURIDICA"
 	})
 
 person_nestor = Person.create!({
 									name: "Néstor Pérez",
 									identification_code_type: "CUIL",
 									identification_code_number: "21/6",
+									person_type: "FISICA"
 	})
 
 person_ricardo = Person.create!({
 									name: "Ricardo Fuerte",
 									identification_code_type: "CUIL",
 									identification_code_number: "11/6",
+									person_type: "FISICA"
 	})
 
 person_ledesma = Person.create!({
 									name: "Ledesma",
 									identification_code_type: "CUIT",
 									identification_code_number: "22/6",
+									person_type: "JURIDICA"
 	})
 
 person_pepitos = Person.create!({
 									name: "Pepitos",
 									identification_code_type: "CUIT",
 									identification_code_number: "11/6",
+									person_type: "JURIDICA"
 	})
 
 ### CONTACTS
@@ -165,115 +171,115 @@ ivan_contact_1 = ClientContact.create! ({
 
 ### Invoiced for Cristian:
 invoice_1 = Invoice.create!({
-									description: "Paga la cuota del cable (acá no hay subsidios).", 
-									total_amount: 550.00, 
-									discharge_date: "2013-11-24", 
+									description: "Paga la cuota del cable (acá no hay subsidios).",
+									total_amount: 550.00,
+									discharge_date: "2013-11-24",
 									client_id: cristian.id,
 									person_id: person_juana.id,
 	})
 
 invoice_2 = Invoice.create!({
-									description: "Pago de gas.", 
-									total_amount: 550.00, 
-									discharge_date: "2013-12-24", 
+									description: "Pago de gas.",
+									total_amount: 550.00,
+									discharge_date: "2013-12-24",
 									client_id: cristian.id,
 									person_id: person_nestor.id,
 	})
 
 invoice_3 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 550.00, 
-									discharge_date: "2014-03-12", 
+									description: "Pago de impuestos.",
+									total_amount: 550.00,
+									discharge_date: "2014-03-12",
 									client_id: cristian.id,
 									person_id: person_pepitos.id,
 	})
 
 invoice_4 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 550.00, 
-									discharge_date: "2014-11-12", 
+									description: "Pago de impuestos.",
+									total_amount: 550.00,
+									discharge_date: "2014-11-12",
 									client_id: cristian.id,
 									person_id: person_ledesma.id,
 	})
 
 invoice_5 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-04-12", 
+									description: "Pago de impuestos.",
+									total_amount: 550.00,
+									discharge_date: "2015-04-12",
 									client_id: cristian.id,
 									person_id: person_pepitos.id,
 	})
 
 invoice_6 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 600.00, 
-									discharge_date: "2015-05-12", 
+									description: "Pago de impuestos.",
+									total_amount: 600.00,
+									discharge_date: "2015-05-12",
 									client_id: cristian.id,
 									person_id: person_unlp.id,
 	})
 
 invoice_7 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-06-01", 
+									description: "Pago de impuestos.",
+									total_amount: 550.00,
+									discharge_date: "2015-06-01",
 									client_id: cristian.id,
 									person_id: person_unlp.id,
 	})
 
 invoice_8 = Invoice.create!({
-									description: "Pago de impuestos.", 
-									total_amount: 600.00, 
-									discharge_date: "2015-07-12", 
+									description: "Pago de impuestos.",
+									total_amount: 600.00,
+									discharge_date: "2015-07-12",
 									client_id: cristian.id,
 									person_id: person_unlp.id,
 	})
 
 invoice_9 = Invoice.create!({
-									description: "Pago de impuestos por lectura.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-11-01", 
+									description: "Pago de impuestos por lectura.",
+									total_amount: 550.00,
+									discharge_date: "2015-11-01",
 									client_id: cristian.id,
 									person_id: person_ricardo.id,
 	})
 
 # Invoiced for Braian:
 invoice_10 = Invoice.create!({
-									description: "Pago de luz abril.", 
-									total_amount: 550.00, 
-									discharge_date: "2014-04-01", 
+									description: "Pago de luz abril.",
+									total_amount: 550.00,
+									discharge_date: "2014-04-01",
 									client_id: braian.id,
 									person_id: person_nestor.id,
 	})
 
 invoice_11 = Invoice.create!({
-									description: "Pago de luz mayo.", 
-									total_amount: 550.00, 
-									discharge_date: "2014-05-01", 
+									description: "Pago de luz mayo.",
+									total_amount: 550.00,
+									discharge_date: "2014-05-01",
 									client_id: braian.id,
 									person_id: person_nestor.id,
 	})
 
 invoice_12 = Invoice.create!({
-									description: "Pago de impuestos enero.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-01-11", 
+									description: "Pago de impuestos enero.",
+									total_amount: 550.00,
+									discharge_date: "2015-01-11",
 									client_id: braian.id,
 									person_id: person_unlp.id,
 	})
 
 invoice_13 = Invoice.create!({
-									description: "Pago de impuestos febrero.", 
-									total_amount: 550.00, 
-									discharge_date: "2015-02-01", 
+									description: "Pago de impuestos febrero.",
+									total_amount: 550.00,
+									discharge_date: "2015-02-01",
 									client_id: braian.id,
 									person_id: person_unlp.id,
 	})
 
 #Invoiced for Juli:
 invoice_14 = Invoice.create!({
-									description: "Pago de internet.", 
-									total_amount: 1550.00, 
-									discharge_date: "2015-10-01", 
+									description: "Pago de internet.",
+									total_amount: 1550.00,
+									discharge_date: "2015-10-01",
 									client_id: juli.id,
 									person_id: person_ricardo.id,
 	})

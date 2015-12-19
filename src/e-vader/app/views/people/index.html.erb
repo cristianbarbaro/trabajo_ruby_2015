@@ -3,7 +3,8 @@
 <table class="table table-bordered text-center">
   <thead>
     <tr>
-      <th class="text-center">Nombre</th>
+      <th class="text-center">Nombre / Razón social</th>
+      <th class="text-center">Tipo</th>
       <th class="text-center">CUIL/CUIT</th>
       <th class="text-center">Número de CUIL/CUIT</th>
       <th class="text-center" colspan="3">Acciones</th>
@@ -14,6 +15,7 @@
     <% @people.each do |person| %>
       <tr>
         <td><%= person.name %></td>
+        <td><%= person.person_type %></td>
         <td><%= person.identification_code_type %></td>
         <td><%= person.identification_code_number %></td>
         <td><%= link_to 'Ver', person %></td>
