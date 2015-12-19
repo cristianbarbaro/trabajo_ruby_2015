@@ -15,33 +15,35 @@
 
 ### ¿Cómo funciona la aplicación?
 
-Los datos de nuestra aplicación se almacenan en bases de datos `SQlite`.  
+* Los datos de nuestra aplicación se almacenan en bases de datos `SQlite`.  
 
 #### Sobre los clientes:
 
 * Al acceder al `index` de la aplicación se mostrará una lista con los clientes que realizan facturación. Desde allí usted puede ver información detallada, editar y eliminar un cliente.
- * La información que se muestra es la solicitada en el enunciado del trabajo práctico.
- * Además se cuenta con un botón que nos lleva a un listado con todas las facturas emitidas por el cliente en cuestión.
- * Usted puede ver, editar y eliminar una factura.
-
-#### Sobre las personas:
-
-* Para ver las personas a las que se les emite facturas, debe accederse a la ruta `/people`.
-* Allí se listan las personas y se cuenta con la opción de `Ver`, `Editar` y `Eliminar` a una persona.
-* También hay un botón para agregar una persona.
-
-#### Sobre los tipos de contactos:
-
-* Para ver una lista de todos los tipos de contactos disponibles y agregar, ver, editar y eliminar un tipo de contacto, debe acceder a la ruta `/contacts`.
-* Cada vez que desee agregar información de contacto y no cuente con el tipo de contacto, debe acceder a la ruta `/contacts/new` y agregarla a la base de datos.
+* La información que se muestra es la solicitada en el enunciado del trabajo práctico.
+* Además se cuenta con un botón que nos lleva a un listado con todas las facturas emitidas por el cliente en cuestión.
+* Usted puede ver, editar y eliminar una factura.
+* Si desea facturar a una persona y no está en la base de datos, debe agregarla desde el menú de _Personas_.
+* Un cliente no puede ser eliminado si tiene facturas asociadas. Para eliminación del mismo, deben eliminarse sus facturas asociadas.
 
 #### Sobre las facturas:
 
-* Para listar todas las facturas (sin tener en cuenta si es de un cliente en particular, se listan todas) debe acceder a `/invoices`. Allí cuenta con las opciones para agregar, ver, editar y eliminar facturas.
-* Si lo que desea es ver las facturas de un cliente en particular, debe acceder desde la opción desde `Clientes`.
+* Para acceder a las facturas de un cliente, debe hacerlo desde la vista que contiene la información del cliente. Desde allí, se puede acceder a un botón que nos mostrará todas las facturas.
+* En dicho listado, se podrán ver, editar y eliminar las facturas.
+* También podrá crearse una factura emitida por el cliente de estas.
+* Cuando se crea una factura, por defecto su fecha de emisión es la del día en que fue creada pudiéndose modificar esa fecha.
+
+#### Sobre las personas:
+
+* Hay dos tipos de personas: físicas y jurídicas (entidades, empreseas, etc.).
+* Para eliminar una persona, debe asegurarse de que no tiene facturas en las que esté facturado, de ser este el caso, debe eliminarse las facturas.
 
 #### Sobre los tests:
 
 * Hay una serie de tests que analizan la funcionalidad del sistema. Se cuenta con tests a algunos controladores y a modelos.
 * Para correr todos los tests basta con ejecutar `bundle exec rake test`.
-* Si se desea correr los tests para los modelos, se ejecuta `bundle exec rake test:models`, análogo si se desea correr los tests de los controladores: `bundle exec rake test:controllers`. Estos últimos no se piden como parte de la entrega, pero no está de más pegarle una testeada para quedarnos tranquilos de que algo funciona bien.
+* Si se desea correr los tests para los modelos, se ejecuta `bundle exec rake test:models` (se testean los modelos de clientes y facturas), análogo si se desea correr los tests de los controladores: `bundle exec rake test:controllers` (están los tests para los controladores de los clientes, facturas y personas). Para ver más información mientras se corren los tests, le podemos enviar la opción `--verbose`.
+
+#### Algunas cosas que deben tenerse en cuenta:
+
+* Al crear un cliente, es obligatorio completar todos los campos y no se pueden almacenar si no tienen al menos un medio de contacto.
