@@ -28,6 +28,20 @@ class ClientTest < ActiveSupport::TestCase
   	assert client.save
   end
 
+  test "should not save client with not valid birthdate" do
+    client = Client.create({
+									firstname: "Name",
+									lastname: "Surname",
+									birthdate: (Time.new + 60*60*24).strftime("%Y-%m-%d"),  # Tomorrow.
+									genre: "M",
+									document_number: 12345678,
+									identification_code_type: "CUIL",
+									identification_code_number: "10/0",
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"1515151", "client_id"=>"", "id"=>""}}
+		})
+  	assert_not client.save
+  end
+
   test "should not save client with incorrect data" do
   	client = Client.create({
 									firstname: "name12345",
@@ -53,7 +67,7 @@ class ClientTest < ActiveSupport::TestCase
 									identification_code_type: "CUIL",
 									identification_code_number: "10/0",
 									#Agregamos un contacto:
-									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"1515151", "client_id"=>"", "id"=>""}}	 
+									client_contacts_attributes: {"0"=>{"contact_id"=>"1", "value"=>"1515151", "client_id"=>"", "id"=>""}}
 		})
   	assert client.save
   end
@@ -85,7 +99,7 @@ class ClientTest < ActiveSupport::TestCase
 		assert_not client.save
   end
 
-  #Delete with invoices associated
+  #Delete with/without invoices associated
   test "should delete client without invoices associated" do
   	assert @client_three.destroy
   end
