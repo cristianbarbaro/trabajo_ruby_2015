@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
 
 	# Here I'm happy :)
 
-	before_action :get_client, only: [:show, :edit, :update, :destroy, :invoices]
+	before_action :get_client, only: [:show, :edit, :update, :destroy]
 
 	# GET /clients
 	def index
@@ -18,7 +18,7 @@ class ClientsController < ApplicationController
 		@invoiced = invoiced_people
 	end
 
-	# GET /clients/new (Equivalent to a "create")
+	# GET /clients/new
 	def new
 		@client = Client.new
 		@client.client_contacts.build
@@ -28,9 +28,8 @@ class ClientsController < ApplicationController
 	def edit
 	end
 
-	# POST /clients (Equivalent to a "store")
+	# POST /clients
 	def create
-		#render plain: params[:client].inspect
 		@client = Client.new(client_params)
     if @client.save
     	flash[:success] = 'El cliente se ha creado exitosamente.'
@@ -42,7 +41,6 @@ class ClientsController < ApplicationController
 
 	# PATCH/PUT /clients/1
 	def update
-		#render plain: params[:client].inspect
     if @client.update(client_params)
     	flash[:success] = 'El cliente se ha actualizado exitosamente.'
       redirect_to @client
@@ -59,14 +57,6 @@ class ClientsController < ApplicationController
 			flash[:alert] = 'No se puede eliminar el cliente porque tiene facturas asociadas. Antes debe eliminar sus facturas.'
 		end
 		redirect_to clients_url
-	end
-
-	# Here I die.
-
-	# GET /clients/1/invoices
-	def invoices
-		@invoices = @client.invoices()
-		render :invoices
 	end
 
 	# Here I'm dead.
@@ -110,5 +100,4 @@ class ClientsController < ApplicationController
 	  end
 
 	  # Here I'm not happy.
-
 end
