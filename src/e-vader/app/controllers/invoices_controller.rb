@@ -11,14 +11,12 @@ class InvoicesController < ApplicationController
   def show
     @client = Client.find(@invoice.client_id)
     @person = Person.find(@invoice.person_id)
-    #redirect_to client_invoice_url(@invoice.client_id, @invoice.id)
   end
 
   # GET /clients/1/invoices/new
   def new
     @client = Client.find(params[:client_id])
     @invoice = Invoice.new
-    #redirect_to client_invoice_url
   end
 
   # GET /clients/1/invoices/1/edit
