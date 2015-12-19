@@ -4,4 +4,5 @@ class Invoice < ActiveRecord::Base
 
 	validates :description, :total_amount, :discharge_date, :client_id, :person_id, presence: true
 	validates :total_amount, numericality: { greater_than_or_equal_to: 0 }
+	validates :discharge_date, date: { before: Proc.new { Time.now } }
 end
