@@ -16,5 +16,5 @@ class Client < ActiveRecord::Base
 	validates :birthdate, date: { after: Proc.new { Time.now - 95.year },
 																before: Proc.new { Time.now }
 															}
-#	validates :identification_code_number, format: { with: /\A[\d{2}]+\/+[\d{1}]+\z/ }
+	validates :identification_code_number, format: { with: /\A\d{2}\/\d{1}\z/ }
 end
