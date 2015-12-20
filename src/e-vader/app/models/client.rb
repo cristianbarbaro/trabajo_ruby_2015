@@ -28,10 +28,6 @@ class Client < ActiveRecord::Base
 		"#{self.firstname} #{self.lastname}"
 	end
 
-	def invoiced_people(limit)
-
-	end
-
 	# Returns a hash where key is year and value is total amount per year.
 	def amount_per_year
 	  self.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
