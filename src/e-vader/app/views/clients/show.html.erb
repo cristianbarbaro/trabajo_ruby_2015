@@ -11,6 +11,14 @@
 			<%= @age %>
 		</p>
 		<p>
+			<strong>Sexo: </strong>
+			<% if @client.genre == 'M' %>
+				<%= "Masculino" %>
+			<% elsif @client.genre == 'F' %>
+				<%= "Femenino" %>
+			<% end %>
+		</p>
+		<p>
 			<strong>Número de documento:</strong>
 			<%= @client.document_number %>
 		</p>
