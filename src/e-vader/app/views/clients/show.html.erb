@@ -1,4 +1,4 @@
-<h3 class="text-center">Información sobre cliente: <%= @client.firstname %> <%= @client.lastname %></h3>
+<h3 class="text-center">Información sobre cliente: <%= @client.fullname %></h3>
 
 <div class="container-fluid">
 	<div class="bg-warning">
@@ -8,7 +8,7 @@
 		</p>
 		<p>
 			<strong>Edad:</strong>
-			<%= @age %>
+			<%= @client.age %>
 		</p>
 		<p>
 			<strong>Sexo: </strong>
@@ -29,7 +29,7 @@
 		<div>
 			<strong>Medios de contacto: </strong>
 			<ul>
-				<% @contacts.each do |c| %>
+				<% @client.client_contacts.each do |c| %>
 					<li><%= Contact.find(c.contact_id).contact_type %>:
 						<%= c.value %>
 					</li>
@@ -39,7 +39,7 @@
 		<div>
 			<strong>Monto total por año:</strong>
 			<ul>
-				<% @annual_amount.each do |year, total| %>
+				<% @client.amount_per_year.each do |year, total| %>
 					<li>El año <%= year %> facturó $<%= total %> </li>
 				<% end %>
 			</ul>
@@ -47,7 +47,7 @@
 		<div>
 			<strong>Cantidad de facturas emitidas por mes del corriente año:</strong>
 			<ul>
-				<% @invoices_per_month.each do |month, amount| %>
+				<% @client.invoice_per_month.each do |month, amount| %>
 					<li>El mes de <%= I18n.t("date.month_names")[month.to_i] %> emitió <%= amount %> facturas.</li>
 				<% end %>
 			</ul>

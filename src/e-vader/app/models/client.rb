@@ -17,4 +17,31 @@ class Client < ActiveRecord::Base
 																before: Proc.new { Time.now }
 															}
 	validates :identification_code_number, format: { with: /\A\d{2}\/\d{1}\z/ }
+
+	def age
+		now = Date.today
+		birthdate = self.birthdate
+		now.year - birthdate.year - (birthdate.to_time.change(:year => now.year) > now ? 1 : 0)
+	end
+
+	def fullname
+		"#{self.firstname} #{self.lastname}"
+	end
+
+	def invoiced_people(limit)
+
+	end
+
+	# Returns a hash where key is year and value is total amount per year.
+	def amount_per_year
+	  self.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
+	end
+
+	# Returns a hash where key is month and value is amount invoice per month.
+	def invoice_per_month
+		current = Time.now.year.to_s
+		self.invoices.group("strftime('%m',discharge_date)")
+		.having("strftime('%Y',discharge_date) = ?", current).count()
+	end
+
 end

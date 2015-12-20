@@ -11,10 +11,6 @@ class ClientsController < ApplicationController
 
 	# GET /clients/1
 	def show
-		@age = calculate_age
-		@annual_amount = amount_per_year
-		@contacts = @client.client_contacts
-		@invoices_per_month = amount_invoice_per_month
 		@invoiced = invoiced_people
 	end
 
@@ -72,24 +68,6 @@ class ClientsController < ApplicationController
 
 	  def get_client
 	  	@client = Client.find(params[:id])
-	  end
-
-	  def calculate_age
-	  	now = Date.today
-			birthdate = @client.birthdate
-			now.year - birthdate.year - (birthdate.to_time.change(:year => now.year) > now ? 1 : 0)
-	  end
-
-	  # Returns a hash where key is year and value is total amount per year.
-	  def amount_per_year
-	  	@client.invoices.group("strftime('%Y',discharge_date)").sum("total_amount")
-	  end
-
-	  # Returns a hash where key is month and value is amount invoice per month.
-	  def amount_invoice_per_month
-	  	current = Time.now.year.to_s
-	  	@client.invoices.group("strftime('%m',discharge_date)")
-	  	.having("strftime('%Y',discharge_date) = ?", current).count()
 	  end
 
 	  # Returns a hash with five people than has been more invoiced.
