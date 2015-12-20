@@ -93,11 +93,11 @@ class ClientsController < ApplicationController
 	  end
 
 	  # Returns a hash with five people than has been more invoiced.
-	  # Key is person_id and value is times invoiced amount.
+	  # Key is person_id and value is invoiced total amount.
 	  def invoiced_people
-	  	invoiced = @client.people.group(:person_id).limit(5).count
-	  	invoiced.sort_by {|key, value| value}.reverse.to_h
-	  end
+			invoiced = @client.invoices.group(:person_id).sum(:total_amount)
+			invoiced.sort_by {|key, value| value}.reverse.first(5).to_h
+		end
 
 	  # Here I'm not happy.
 end

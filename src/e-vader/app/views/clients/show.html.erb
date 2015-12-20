@@ -45,10 +45,10 @@
 			</ul>
 		</div>
 		<div>
-			<strong>Las cinco personas más facturadas son:</strong>
+			<strong>Las cinco personas más facturadas (monto total) son:</strong>
 			<ol>
 				<% @invoiced.each do |person_id, amount_invoiced | %>
-					<li> La persona <strong><%= Person.find(person_id).name %></strong> ha sido facturada <%= amount_invoiced %> veces.</li>
+					<li> A la persona <strong><%= Person.find(person_id).name %></strong> se le ha facturado un total de <strong>$<%= amount_invoiced %></strong>.</li>
 				<% end %>
 			</ol>
 		</div>
