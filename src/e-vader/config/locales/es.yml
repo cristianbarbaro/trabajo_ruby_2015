@@ -232,6 +232,8 @@ es:
       client_contact:
         value: "Valor"
         contact_type: "Tipo de contacto"
+      contact:
+        contact_type: "Nombre de tipo de contacto"
   simple_form:
     error_notification:
       default_message: "Por favor, revise los campos en rojo:"

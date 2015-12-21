@@ -1,8 +1,5 @@
 <div class="">
-  <div class="form-group">
-    <%= f.label "Nombre" %><br>
-    <%= f.text_field :contact_type, required: true, class: 'form-control' %>
-  </div>
+  <%= f.input :contact_type %>
   <div class="pull-right">
     <%= link_to 'Volver', :back, class: 'btn btn-danger' %>
     <%= f.submit :value => "Guardar", class: "btn btn-success" %>

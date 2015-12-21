@@ -1,8 +1,7 @@
 <h3 class="text-center">Editar tipo de contacto</h3>
 
-<%= render "errors_messages" %>
-
-<%= form_for :contact, url: contact_path do |f| %>
+<%= simple_form_for @contact, url: contact_path do |f| %>
   <input type="hidden" name="_method" value="put" >
+  <%= f.error_notification %>
   <%= render 'form', :f => f %>
 <% end %>
