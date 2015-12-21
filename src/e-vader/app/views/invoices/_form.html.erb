@@ -11,7 +11,7 @@
     <%#= select("invoice", "client_id", Client.all.collect {|c| [ c.firstname + ' ' + c.lastname, c.id ] }, {prompt: 'Seleccionar cliente'}) %>
     <%= f.input :description %>
   <div class="pull-right">
-    <%= link_to 'Volver al listado', client_invoices_path(@client.id), class: "btn btn-default" %>
+    <%= link_to 'Volver', :back, class: "btn btn-default" %>
     <%= f.button :submit, class: "btn-success" %>
   </div>
 </div>
