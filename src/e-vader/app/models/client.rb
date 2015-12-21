@@ -35,9 +35,9 @@ class Client < ActiveRecord::Base
 
 	# Returns a hash where key is month and value is amount invoice per month.
 	def invoice_per_month
-		current = Time.now.year.to_s
+		current_year = Time.now.year.to_s
 		self.invoices.group("strftime('%m',discharge_date)")
-		.having("strftime('%Y',discharge_date) = ?", current).count()
+		.where("strftime('%Y',discharge_date) = ?", current_year).count()
 	end
 
 end
