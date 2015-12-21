@@ -5,4 +5,9 @@ class Person < ActiveRecord::Base
 	validates :name, :identification_code_type, :identification_code_number, :person_type, presence: true
 	validates :identification_code_type, inclusion: { in: %w(CUIT CUIL) }
 	validates :person_type, inclusion: { in: %w(JURIDICA FISICA) }
+
+	def to_s
+		"#{self.name}, #{self.identification_code_type}  #{self.identification_code_number}"
+	end
+
 end
