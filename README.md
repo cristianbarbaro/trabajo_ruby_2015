@@ -12,11 +12,11 @@
   * `bundle exec rake db:migrate` para correr las migraciones.
   * `bundle exec rake db:seed` para instalar los datos de pruebas del sistema.
 * Iniciar un servidor con `bundle exec rails s` y acceder a `http://localhost:3000`.
-  * Nota: si se está ejecutando en la máquina virtual que proporciona la cátedra (VagrantFile), entonces debe agregarse la opción `-b 10.10.10.10`. Esa es la ip de la red privada de la máquina virtual y es el punto de acceso a la misma.
+  * Nota: si se está ejecutando en la máquina virtual que proporciona la cátedra (VagrantFile), entonces debe agregarse la opción `-b 10.10.10.10`. Esa es la ip de la red privada de la máquina virtual y es el punto de acceso a la misma (es esa la dirección a la que debería conectarse en vez de la localhost).
 
 ### ¿Cómo funciona la aplicación?
 
-* Los datos de nuestra aplicación se almacenan en bases de datos `SQLite`.  
+* Los datos de nuestra aplicación se almacenan en bases de datos `SQLite`.
 
 #### Sobre los clientes:
 
@@ -49,4 +49,4 @@
 
 * Al crear un cliente, es obligatorio completar todos los campos y no se pueden almacenar si no tienen al menos un medio de contacto.
 * Todos los campos son obligatorios en todos los formularios.
-* Cuando se intenta llevar a cabo una operación inválida, se muestran mensajes de error. 
+* Cuando se intenta llevar a cabo una operación inválida, se muestran mensajes de error.
