@@ -1,4 +1,4 @@
-FROM ruby 
+FROM ruby:2.2.3 
 MAINTAINER cbarbaro@cert.unlp.edu.ar
 
 # Install apt based dependencies required to run Rails as well as RubyGems. As the Ruby image itself is based on a 
